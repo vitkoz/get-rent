@@ -36,7 +36,7 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  margin-top: 30px; // accommodate the navbar
+  margin-top: 60px; // accommodate the navbar
 }
 
 section {
@@ -80,4 +80,18 @@ section {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-sm;
+}
+
+.site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+.site-header a {
+    color: #999;
+    transition: ease-in-out color .15s;
+}
+.py-2 {
+    padding: .5rem!important 0;
 }

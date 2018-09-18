@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Category:
+  = @phone.category
+%p
+  %b Area code:
+  = @phone.area_code
+%p
+  %b Phone number:
+  = @phone.phone_number
+
+= link_to 'Edit', edit_phone_path(@phone)
+\|
+= link_to 'Back', phones_path

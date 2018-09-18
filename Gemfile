@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-ruby '2.5.1'
+
 gem 'rails', '~> 5.2.1'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
@@ -23,10 +23,18 @@ group :test do
   gem 'chromedriver-helper'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
 gem 'devise'
 gem 'haml-rails'
 gem 'high_voltage'
+
+gem 'simple_form'
+gem 'country_select'
+
 group :development do
   gem 'better_errors'
   gem 'html2haml'
@@ -34,16 +42,21 @@ group :development do
   gem 'rails_layout'
   gem 'spring-commands-rspec'
 end
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
   gem 'sqlite3'
 end
+
 group :production do
   gem 'pg'
 end
+
 group :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
+
+ruby '2.5.1'
