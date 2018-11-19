@@ -1,12 +1,16 @@
 class CreatePhones < ActiveRecord::Migration[5.2]
   def change
     create_table :phones do |t|
-      t.string :category
+      t.integer :category, index: true
       t.string :area_code
       t.string :phone_number
+      t.boolean :primary, index: true
+
+      t.references :user, index: true
+      t.references :person, index: true
+      t.references :company, index: true
 
       t.timestamps
     end
-    add_index :phones, :category
   end
 end

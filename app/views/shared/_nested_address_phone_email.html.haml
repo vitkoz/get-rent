@@ -1,0 +1,52 @@
+.sttabs.tabs-style-circle
+  %nav
+    %ul
+      %li
+        %a.sticon.ti-home{ href: "#address_tab" }
+          %span Addresses
+      %li
+        %a.sticon.ti-mobile{ href: "#phones_tab" }
+          %span Phones
+      %li
+        %a.sticon.ti-email{ href: "#emails_tab" }
+          %span Emails
+      %li
+        %a.sticon.ti-website{ href: "#websites_tab" }
+          %span Websites
+  .content-wrap
+    %section#address_tab
+      = f.fields_for :addresses do |address|
+        = render 'addresses/nested_fields', f: address
+      .links
+        = link_to_add_association f, :addresses, partial: 'addresses/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+          %i.fa.fa-plus
+          Add Another
+    %section#phones_tab
+      = f.fields_for :phones do |phone|
+        = render 'phones/nested_fields', f: phone
+      .links
+        = link_to_add_association f, :phones, partial: 'phones/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+          %i.fa.fa-plus
+          Add Another
+    %section#emails_tab
+      = f.fields_for :emails do |email|
+        = render 'emails/nested_fields', f: email
+      .links
+        = link_to_add_association f, :emails, partial: 'emails/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+          %i.fa.fa-plus
+          Add Another
+    - if web
+      %section#webs_tab
+        = f.fields_for :websites do |website|
+          = render 'websites/nested_fields', f: website
+        .links
+          = link_to_add_association f, :websites, partial: 'websites/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+            %i.fa.fa-plus
+            Add Another
+
+:javascript
+  (function() {
+      [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
+          new CBPFWTabs(el);
+      });
+  })();

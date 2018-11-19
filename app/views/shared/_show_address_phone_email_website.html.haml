@@ -1,0 +1,23 @@
+.col-lg-6.col-sm-12
+  %h3.box-title Mailing Address
+
+  %strong= resource.name
+  = addresses resource.addresses
+
+.col-lg-6.col-sm-12
+  %h3.box-title Contact
+
+  - if resource.phones.present?
+    Telephone:
+    = phones resource.phones
+    %br/
+
+  - if resource.emails.present?
+    Email:
+    = emails resource.emails
+    %br/
+
+  - if !defined? website || website == true
+    - if resource.websites.present?
+      Website:
+      = websites resource.websites

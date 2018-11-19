@@ -1,11 +1,33 @@
 -# frozen_string_literal: true
-= simple_form_for(@client) do |f|
+= simple_form_for @client do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   .form-inputs
     = f.input :type
     = f.input :name
+
+  %section#address_tab
+    = f.simple_fields_for :addresses do |address|
+      = render 'addresses/nested_fields', f: address
+    .links
+      = link_to_add_association f, :addresses, partial: 'addresses/nested_fields' do
+        %i.fa.fa-plus
+        Add Another
+  -# %section#phones_tab
+  -#   = f.fields_for :phones do |phone|
+  -#     = render 'phones/nested_fields', f: phone
+  -#   .links
+  -#     = link_to_add_association f, :phones, partial: 'phones/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+  -#       %i.fa.fa-plus
+  -#       Add Another
+  -# %section#emails_tab
+  -#   = f.fields_for :emails do |email|
+  -#     = render 'emails/nested_fields', f: email
+  -#   .links
+  -#     = link_to_add_association f, :emails, partial: 'emails/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+  -#       %i.fa.fa-plus
+  -#       Add Another
 
   .form-actions
     = f.button :submit

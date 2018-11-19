@@ -1,0 +1,15 @@
+.nested-fields
+  .row
+    .col-md-12
+      = link_to_remove_association f, class: "btn btn-danger btn-circle text-white z-depth-1 pull-right", style: 'padding: 0; width: 18px; height: 18px;' do
+        %i.fa.fa-times
+
+  .row
+    .col-md-12
+      .form-group
+        %label Email
+        = f.email_field :email, class: 'form-control'
+  .row
+    .form-group.m-b-40.checkbox.checkbox-success.checkbox-circle
+      = f.check_box :primary, id: 'active', class: 'js-switch', data: { color: "#99d683" , "secondary-color" => "#f96262", size: "small" }
+      %label{ for: "active"} Primary Email?

@@ -1,7 +1,8 @@
 class CreatePeople < ActiveRecord::Migration[5.2]
   def change
     create_table :people do |t|
-      t.string :type
+      t.string :type, index: true
+      t.references :user, index: true
       t.string :first_name
       t.string :last_name
       t.date :dob
@@ -9,6 +10,5 @@ class CreatePeople < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :people, :type
   end
 end
