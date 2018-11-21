@@ -21,33 +21,9 @@
                 .p-4.text-center.bg-dark-active.text-white
                   %a.avatar.avatar60.ml-auto.mr-auto.bg-gradient-primary.text-white.rounded-circle{:href => "index.html"}
                     %i.icon-Paper-Plane
-                  %h5.text-center.h5.pt-10.mb-0.text-white Please login
+                  %h5.text-center.h5.pt-10.mb-0.text-white Sidney P. Katz, PLLC
                 .p-3.pt-30.pb-30
-                  %form{:role => "form"}
-                    .input-icon-group
-                      .d-flex.flex.flex-row
-                        %label.flex.d-flex.mr-auto{:for => "pass"} Username
-                        -# .flex.d-flex.ml-auto.justify-content-end
-                          %a.text-primary.fs12{:href => "#"} Remind Me
-                      .input-icon-append
-                        %i.fa.fa-user
-                        %input.form-control{:placeholder => "Username", :type => "text"}/
-                    .input-icon-group
-                      .d-flex.flex.flex-row
-                        %label.flex.d-flex.mr-auto{:for => "pass"} password
-                        .flex.d-flex.ml-auto.justify-content-end
-                          %a.text-primary.fs12{:href => "#"} Forgot password
-                      .input-icon-append
-                        %i.fa.fa-lock
-                        %input#pass.form-control{:placeholder => "Password", :type => "password"}/
-                    .customUi-checkbox.pb-2
-                      %input#check-remember{:name => "agree", :type => "checkbox"}/
-                      %label{:for => "check-remember"}
-                        %span.label-checkbox
-                        %span.label-helper Remember Me
-                    %button.btn.btn-gradient-primary.btn-block.btn-lg{:type => "submit"} Sign In
-                    .pt-20.text-center
-                      Don't have an account?
-                      %a.text-primary.ml-2.b-b.d-inline-block.pb-1{:href => "page-sign-up.html"} Sign Up Here
+                  = render 'layouts/messages'
+                  = yield
 
         = render 'layouts/shared/footer'

@@ -1,0 +1,50 @@
+-# .authform
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f|
+    %h3 Sign up
+    = devise_error_messages!
+    .form-group
+      = f.label :name
+      = f.text_field :name, :autofocus => true, class: 'form-control'
+    .form-group
+      = f.label :email
+      = f.email_field :email, class: 'form-control'
+    .form-group
+      = f.label :password
+      = f.password_field :password, class: 'form-control'
+    .form-group
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: 'form-control'
+    = f.submit 'Sign up', :class => 'button right'
+
+.authform
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form'}) do |f|
+    %h3 Sign up
+    = devise_error_messages!
+    .input-icon-group
+      .input-icon-append
+        %i.fa.fa-user
+        = f.text_field :name, autofocus: true, class: 'form-control', id: 'us1', placeholder: "Your name"
+    .input-icon-group
+      .input-icon-append
+        %i.fa.fa-envelope
+        = f.email_field :email, class: 'form-control', id: 'email', placeholder: "Email address"
+    .input-icon-group
+      .input-icon-append
+        %i.fa.fa-lock
+        = f.password_field :password, class: 'form-control', id: 'pass', placeholder: "Password"
+    .input-icon-group
+      .input-icon-append
+        %i.fa.fa-lock
+        = f.password_field :password_confirmation, class: 'form-control', id: 'cn-pass', placeholder: "Confirm password"
+    .form-group.pb-2
+      %span.label-helper.fs12.text-muted
+        By Creating an Account you Agree to our
+        %a.b-b.pb-1.text-primary{:href => "#"} Terms and Conditions
+        and our
+        = succeed "." do
+          %a.b-b.pb-1.text-primary{:href => "#"} Privacy Policy
+    %button.btn.btn-primary.btn-block.ml-auto.btn-rounded.btn-lg{:type => "submit"} Create account
+
+  .pt-20.text-center
+    Already have an account?
+    = link_to "Sign In Here", new_user_session_path, class: 'text-primary ml-2 b-b d-inline-block pb-1'

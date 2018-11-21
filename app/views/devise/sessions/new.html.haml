@@ -1,0 +1,34 @@
+.authform
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form'}) do |f|
+    %h3 Sign in
+    = devise_error_messages!
+    .input-icon-group
+      .d-flex.flex.flex-row
+        %label.flex.d-flex.mr-auto{:for => "pass"} Email
+        -# .flex.d-flex.ml-auto.justify-content-end
+          %a.text-primary.fs12{:href => "#"} Remind Me
+      .input-icon-append
+        %i.fa.fa-envelope
+        = f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Email address", type: "text"
+    .input-icon-group
+      .d-flex.flex.flex-row
+        %label.flex.d-flex.mr-auto{:for => "pass"} password
+        .flex.d-flex.ml-auto.justify-content-end
+          - if devise_mapping.recoverable?
+            = link_to "Forgot password?", new_password_path(resource_name), class: 'text-primary fs12'
+      .input-icon-append
+        %i.fa.fa-lock
+        = f.password_field :password, class: 'form-control', id: 'pass', placeholder: "Password", type: "password"
+    - if devise_mapping.rememberable?
+      .customUi-checkbox.pb-2
+        = f.check_box :remember_me, id: 'check-remember'
+        %label{:for => "check-remember"}
+          %span.label-checkbox
+          %span.label-helper Remember Me
+
+    = f.submit 'Sign in', :class => 'btn btn-gradient-primary btn-block btn-lg'
+
+    - if devise_mapping.registerable?
+      .pt-20.text-center
+        Don't have an account?
+        = link_to 'Register here', new_registration_path(resource_name), class: 'text-primary ml-2 b-b d-inline-block pb-1'
