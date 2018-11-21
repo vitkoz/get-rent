@@ -16,7 +16,7 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
-    populate_contacts
+    populate_contact_info
   end
 
   # GET /clients/1/edit
@@ -63,24 +63,26 @@ class ClientsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_client
-      @client = Client.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_client
+    @client = Client.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def client_params
-      params.require(:client).permit(:type, :name,
-        addresses_attributes: [:id, :primary, :person_id, :address_1, :address_2, :city, :state, :zip, :country, :category, :_destroy],
-        phones_attributes: [:id, :primary, :person_id, :area_code, :phone_number, :category, :_destroy],
-        emails_attributes: [:id, :primary, :person_id, :email, :category, :_destroy]
-      )
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def client_params
+    params.require(:client).permit(:type, :name,
+      addresses_attributes: [:id, :primary, :company_id, :address_1, :address_2, :city, :state, :zip, :country, :category, :_destroy],
+      phones_attributes: [:id, :primary, :company_id, :area_code, :phone_number, :category, :_destroy],
+      emails_attributes: [:id, :primary, :company_id, :email, :category, :_destroy],
+      websites_attributes: [:id, :primary, :company_id, :category, :url]
+    )
+  end
 
-    def populate_contacts
-      @client.addresses << Address.new if @client.addresses.empty?
-      # @client.emails << Email.new if @client.emails.empty?
-      # @client.phones << Phone.new if @client.phones.empty?
-    end
+  def populate_contact_info
+    @client.addresses << Address.new if @client.addresses.empty?
+    @client.emails << Email.new if @client.emails.empty?
+    @client.phones << Phone.new if @client.phones.empty?
+    @client.websites << Website.new if @client.websites.empty?
+  end
 end

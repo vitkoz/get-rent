@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :clients
 
   resources :properties
+  resources :courts
 
   resources :websites
   resources :emails
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
   resources :addresses
   resources :people
 
-  root to: 'visitors#index'
   devise_for :users
   resources :users
+
+  root to: 'home#dashboard'
 end

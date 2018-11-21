@@ -16,6 +16,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   def new
     @property = Property.new
+    populate_contact_info
   end
 
   # GET /properties/1/edit
@@ -62,14 +63,26 @@ class PropertiesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_property
-      @property = Property.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_property
+    @property = Property.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def property_params
-      params.require(:property).permit(:type, :name)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def property_params
+    params.require(:property).permit(:type, :name,
+      addresses_attributes: [:id, :primary, :company_id, :address_1, :address_2, :city, :state, :zip, :country, :category, :_destroy],
+      phones_attributes: [:id, :primary, :company_id, :area_code, :phone_number, :category, :_destroy],
+      emails_attributes: [:id, :primary, :company_id, :email, :category, :_destroy],
+      websites_attributes: [:id, :primary, :company_id, :category, :url]
+    )
+  end
+
+  def populate_contact_info
+    @property.addresses << Address.new if @client.addresses.empty?
+    @property.emails << Email.new if @client.emails.empty?
+    @property.phones << Phone.new if @client.phones.empty?
+    @property.websites << Website.new if @client.websites.empty?
+  end
 end

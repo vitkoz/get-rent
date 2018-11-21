@@ -5,18 +5,18 @@
         .list
           .list-item.pl-0
             .list-thumb.ml-0.mr-3.pr-3.b-r.text-muted
-              %i.icon-Folder-Pictures
+              %i{ class: "#{content_for?(:page_icon) ? content_for(:page_icon) : 'icon-Home'}" }
             .list-body
               .list-title.fs-2x
-                %h3= @page_title || 'Get Rent!'
+                %h3= content_for?(:page_title) ? content_for(:page_title) : raw("Welcome <strong>#{current_user.email}</strong>")
       .col-md-5.d-flex.justify-content-end.h-md-down
         %nav{"aria-label" => "breadcrumb"}
           %ol.breadcrumb.no-padding.bg-trans.mb-30
             %li.breadcrumb-item
               %a{ href: root_url }
                 %i.icon-Home.mr-2.fs14
-            - if @secondary_page.present?
-              %li.breadcrumb-item
-                = link_to @secondary_page, @secondary_page_url
-            - if @page_title.present?
-              %li.breadcrumb-item.active= @page_title || 'Get Rent'
+
+            - if content_for?(:secondary_page)
+              = content_for :secondary_page
+
+            %li.breadcrumb-item.active= content_for?(:page_title) ? content_for(:page_title) : raw("Welcome <strong>#{current_user.email}</strong>")

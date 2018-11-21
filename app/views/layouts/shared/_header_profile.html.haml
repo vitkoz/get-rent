@@ -11,9 +11,10 @@
         Hi!
         %span.font700 #{ current_user.email }
       %span.fs12.mb-0.text-muted #{ current_user.admin? ? 'Administrator' : 'User'}
-    %a.dropdown-item{:href => "#"}
-      %i.icon-User>
+    = link_to edit_user_registration_path, class: 'dropdown-item' do
+      %i.icon-User
       My Profile
+    .dropdown-divider
     %a.dropdown-item{:href => "#"}
       %i.icon-Newspaper
       Tasks

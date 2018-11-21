@@ -1,7 +1,13 @@
 -# frozen_string_literal: true
-= simple_form_for(@property) do |f|
+= simple_form_for(@court) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = @court.errors.full_messages
+
+  %ul
+    - @court.errors.each do |msg|
+      %li= msg.to_sentence
 
   .form-inputs
     = f.input :name

@@ -35,18 +35,10 @@
         = link_to_add_association f, :emails, partial: 'emails/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
           %i.fa.fa-plus
           Add Another
-    - if web
-      %section#webs_tab
-        = f.fields_for :websites do |website|
-          = render 'websites/nested_fields', f: website
-        .links
-          = link_to_add_association f, :websites, partial: 'websites/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
-            %i.fa.fa-plus
-            Add Another
-
-:javascript
-  (function() {
-      [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
-          new CBPFWTabs(el);
-      });
-  })();
+    %section#webs_tab
+      = f.fields_for :websites do |website|
+        = render 'websites/nested_fields', f: website
+      .links
+        = link_to_add_association f, :websites, partial: 'websites/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+          %i.fa.fa-plus
+          Add Another

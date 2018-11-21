@@ -1,4 +1,13 @@
-%h1 New client
+- content_for :page_icon do
+  icon-Business-Mens
+
+- content_for :page_title do
+  Add a
+  %strong Client
+
+- content_for :secondary_page do
+  %li.breadcrumb-item
+    = link_to 'Clients', clients_path
 
 = render 'form'
 
