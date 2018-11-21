@@ -1,0 +1,74 @@
+%li.nav-item.dropdown
+  %a#dropdownChat.nav-link{"data-toggle" => "dropdown", :href => "#"}
+    %i.icon-Speach-Bubbles
+    %span.badge.badge-success.text-white.anibadge.d-block 9
+  .dropdown-menu.dropdown-menu-right.no-padding.dropdown-menu-lg{"aria-labelledby" => "dropdownChat"}
+    .dropdown-header-top.flex.d-flex.align-items-center
+      %span.d-flex.flex.text-dark.dropdown-title Recent
+      %a.d-flex.d-inline-flex.text-primary
+        %i.fa.fs10.fa-plus.mr-2.d-flex.d-inline-flex.align-self-center
+        New Message
+    %div{:style => "height: 350px"}
+      .slim-scroll
+        %ul.list.chat-list
+          %li.list-item.align-items-center.chat-user.user-online.unread
+            %a.list-link{:href => "#"}
+            .list-thumb.avatar.avatar50.rounded-circle
+              = image_tag "avatar1.jpg", class: 'img-fluid', alt: ''
+            .list-body
+              %span.list-title
+                Emily Doe
+              %span.list-content
+                We'have created a support ticket but
+              %span.list-meta
+                3 Hours ago
+          / item
+          %li.list-item.align-items-center.chat-user
+            %a.list-link{:href => "#"}
+            .list-thumb.avatar.avatar50.rounded-circle
+              = image_tag "avatar2.jpg", class: 'img-fluid', alt: ''
+            .list-body
+              %span.list-title
+                Adam Voges
+              %span.list-content
+                We'have created a support ticket but
+              %span.list-meta
+                7 Hours ago
+          / item
+          %li.list-item.align-items-center.chat-user
+            %a.list-link{:href => "#"}
+            .list-thumb.avatar.avatar50.rounded-circle
+              = image_tag "avatar5.jpg", class: 'img-fluid', alt: ''
+            .list-body
+              %span.list-title
+                Pamela Anderson
+              %span.list-content
+                We'have created a support ticket but
+              %span.list-meta
+                20 Hours ago
+          / item
+          %li.list-item.align-items-center.chat-user.user-dnd
+            %a.list-link{:href => "#"}
+            .list-thumb.avatar.avatar50.rounded-circle
+              = image_tag "avatar4.jpg", class: 'img-fluid', alt: ''
+            .list-body
+              %span.list-title
+                Robin Edwards
+              %span.list-content
+                We'have created a support ticket but
+              %span.list-meta
+                Yesterday
+          / item
+          %li.list-item.align-items-center.chat-user.user-away
+            %a.list-link{:href => "#"}
+            .list-thumb.avatar.avatar50.bg-primary-light.text-primary.rounded-circle
+              %i.icon-Boy
+            .list-body
+              %span.list-title
+                Abraham Josef
+              %span.list-content
+                We'have created a support ticket but
+              %span.list-meta
+                3 Days ago
+          / item
+    %a.dropdown-footer View All Messages

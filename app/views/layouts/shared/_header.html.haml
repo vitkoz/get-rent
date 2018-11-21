@@ -1,0 +1,16 @@
+%header.navbar.page-header.darkHeader.bg-dark.navbar-expand-lg
+  -# Left menu toggler
+  %ul.nav.flex-row.mr-auto
+    %li.nav-item
+      %a.nav-link.sidenav-btn.h-lg-down{:href => "javascript:void(0)"}
+        %span.navbar-toggler-icon
+      %a.nav-link.sidenav-btn.h-lg-up{"data-target" => "#page-aside", "data-toggle" => "dropdown", :href => "#page-aside"}
+        %span.navbar-toggler-icon
+
+  %ul.nav.flex-row.order-lg-2.ml-auto.nav-icons
+    = render 'layouts/shared/header_notifications'
+    = render 'layouts/shared/header_messages'
+    = render 'layouts/shared/header_launchpad'
+    = render 'layouts/shared/header_profile'
+
+  = render 'layouts/shared/header_search'

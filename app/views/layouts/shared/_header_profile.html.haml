@@ -1,0 +1,32 @@
+%li.nav-item.dropdown.user-dropdown.align-items-center
+
+  %a#dropdown-user.nav-link{"data-toggle" => "dropdown", :href => "#", :role => "button"}
+    %span.user-states.states-online
+      = image_tag "avatar6.jpg", class: 'img-fluid rounded-circle', width: "35", alt: ''
+    %span.ml-2.h-lg-down.dropdown-toggle
+      Hi, #{ current_user.email }
+  .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "dropdown-user"}
+    .text-center.p-3.pt-0.b-b.mb-5
+      %span.mb-0.d-block.font300.text-title.fs-1x
+        Hi!
+        %span.font700 #{ current_user.email }
+      %span.fs12.mb-0.text-muted #{ current_user.admin? ? 'Administrator' : 'User'}
+    %a.dropdown-item{:href => "#"}
+      %i.icon-User>
+      My Profile
+    %a.dropdown-item{:href => "#"}
+      %i.icon-Newspaper
+      Tasks
+    %a.dropdown-item{:href => "#"}
+      %i.icon-Speach-Bubble4
+      Messages
+      %span.badge.badge-text.text-primary-active.bg-primary-light.ml-2 5 New
+    .dropdown-divider
+    %a.dropdown-item{:href => "#"}
+      %i.icon-Gear
+      Settings
+      %span.badge.badge-text.text-danger-active.bg-danger-light.ml-2 Update
+    .dropdown-divider
+    = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
+      %i.icon-Power
+      logout

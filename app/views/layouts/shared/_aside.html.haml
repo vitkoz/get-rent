@@ -1,0 +1,43 @@
+%aside#page-aside.page-aside.aside-fixed
+  .sidenav.darkNav
+    %a.app-logo.d-flex.flex.flex-row.align-items-center.overflow-hidden.justify-content-center{ href: root_url }
+      %i.icon-Paper-Plane.inline-icon.rounded.avatar32.d-inline-flex.align-items-center.justify-content-center
+      %span.logo-text.d-inline-flex
+        %span.font700.d-inline-block.mr-1 Sidney P. Katz,
+        PLLC
+    .flex
+      .aside-content.slim-scroll
+        %ul#metisMenu.metisMenu
+          %li{ class: "#{'active' if current_page?(root_path)}" }
+            %i.icon-Gaugage.nav-thumbnail
+            %a{ href: root_url }
+              %span.nav-text
+                Dashboard
+              -# %span.badge.badge-text.ml-1.text-info 50+
+
+          %li.nav-title
+            Clients
+            %span.nav-thumbnail CL
+          %li{ class: "#{'active' if current_page?(clients_path)}" }
+            %i.icon-Business-Mens.nav-thumbnail
+            = link_to clients_path do
+              %span.nav-text
+                Clients
+          %li{ class: "#{'active' if current_page?(properties_path)}" }
+            %i.icon-Building.nav-thumbnail
+            = link_to properties_path do
+              %span.nav-text
+                Properties
+          %li{ class: "#{'active' if current_page?(properties_path)}" }
+            %i.icon-Libra-2.nav-thumbnail
+            = link_to properties_path do
+              %span.nav-text
+                Courts
+
+          %li.nav-title
+            Main
+            %span.nav-thumbnail MN
+
+    .aside-footer.p-3.pl-25
+      %div
+        App Version - 1.0

@@ -1,0 +1,62 @@
+%li.nav-item.dropdown
+  %a#dropdown-notify.nav-link{"data-toggle" => "dropdown", :href => "#"}
+    %i.icon-Envelope
+    %span.badge.badge-primary.d-block.text-white 1
+  .dropdown-menu.dropdown-menu-lg.dropdown-menu-right.no-padding{"aria-labelledby" => "dropdown-notify"}
+    .dropdown-header-top.flex.d-flex.align-items-center
+      %span.d-flex.flex.text-dark.dropdown-title Notifications
+      %a.d-flex.d-inline-flex.text-primary
+        %i.fas.fa-check.fs10.mr-2.d-flex.d-inline-flex.align-self-center
+        Mark all as read
+    %div{:style => "height: 320px"}
+      .slim-scroll
+        %ul.list
+          %li.list-item.align-items-center.unread
+            %a.list-link{:href => "#"}
+            .list-thumb.avatar.avatar50.bg-info.text-white.rounded-circle
+              %i.icon-Twitter
+            .list-body
+              %span.list-title
+                New Followers
+              %span.list-content
+                6 New Followers
+              %span.list-meta
+                3 Hours ago
+          / item
+          %li.list-item.align-items-center.unread
+            %a.list-link{:href => "#"}
+            .list-thumb.avatar.avatar50.bg-warning.text-white.rounded-circle
+              %i.icon-Ticket
+            .list-body
+              %span.list-title
+                New Support Ticket
+              %span.list-content
+                Adam need some helps
+              %span.list-meta
+                5 Hours ago
+          / item
+          %li.list-item.align-items-center
+            %a.list-link{:href => "#"}
+            .list-thumb.avatar.avatar50.bg-teal.text-white.rounded-circle
+              %i.icon-Paypal
+            .list-body
+              %span.list-title
+                Payment Sent
+              %span.list-content
+                You have sent $200 to Joseph
+              %span.list-meta
+                18 Hours ago
+          / item
+          %li.list-item.align-items-center
+            %a.list-link{:href => "#"}
+            .list-thumb.avatar.avatar50.bg-danger.text-white.rounded-circle
+              %i.icon-Envelope
+            .list-body
+              %span.list-title
+                Email Confirmation
+              %span.list-content
+                Confirm your email to complete sign up
+              %span.list-meta
+                Yesterday
+          / item
+    %a.dropdown-footer View All Notifications
