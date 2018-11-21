@@ -28,6 +28,7 @@ group :test do
 end
 
 gem 'bootstrap', '~> 4.1.3'
+gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 

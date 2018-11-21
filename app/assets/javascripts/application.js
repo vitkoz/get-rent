@@ -13,8 +13,10 @@
 //= require jquery3
 //= require popper
 //= require rails-ujs
-//= require bootstrap-sprockets
 
 //= require cocoon
+
+//= require plugins/plugins
+//= require appUi-custom
 
 //= require_tree .
