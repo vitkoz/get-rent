@@ -5,27 +5,334 @@
   Our
   %strong Clients
 
+.row
+  .bg-white.table-responsive.rounded.shadow-sm.pt-3.pb-3.mb-30
+    .clearfix.b-b.mb-3.pb-2
+      = link_to new_client_path, class:'btn btn-dark btn-icon float-right mr-3' do
+        %i.fa.fa-plus
+        New Client
+      %h6.pl-3.pr-3.text-capitalize.font500.mb-20 Clients List
 
-%h1 Listing clients
+    %table#data-table.table.mb-0{:cellspacing => "0", :width => "100%"}
+      %thead.dd-none
+        %tr
+          %th Category
+          %th Name
+          %th Activity
+          %th Status
+          %th Created
 
-%table
-  %thead
-    %tr
-      %th Type
-      %th Name
-      %th
-      %th
-      %th
+      %tbody
+        - @clients.each do |client|
+          %tr
+            %td{:style => "vertical-align: middle;"}
+              %span.avatar.avatar32.bg-warning-light.text-warning.rounded
+                %i.fa.fa-envelope
+            %td
+              = link_to client.name, client
+              .fs12.text-muted
+                #{addresses(client.addresses)}
+                #{emails(client.emails)}
+                #{phones(client.phones)}
+                #{websites(client.websites)}
+                -# %a.b-b.d-inline-block.ml-2{:href => "#"} Sarah Doremi
+            %td
+              %span
+                Voice
+                %strong 3
+              %br
+              %span
+                Posts
+                %strong 23
+              %br
+            %td
+              %span.badge.badge-text.badge-info
+                %i.fa.fa-circle.mr-2>
+                Active
+            %td
+              2 Hours Ago
 
-  %tbody
-    - @clients.each do |client|
-      %tr
-        %td= client.type
-        %td= client.name
-        %td= link_to 'Show', client
-        %td= link_to 'Edit', edit_client_path(client)
-        %td= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
+          %tr
+            %td{:style => "vertical-align: middle;"}
+              %span.avatar.avatar32.bg-success-light.text-success.rounded
+                %i.fa.fa-question
+            %td
+              %a{:href => "#"} Need a custom metrics widget
+              .fs12.text-muted
+                Started by
+                %a.b-b.d-inline-block.ml-2{:href => "#"} Robinho
+            %td
+              %span
+                Voice
+                %strong 0
+              %br
+              %span
+                Posts
+                %strong 3
+              %br
+            %td
+              %span.badge.badge-text.badge-info
+                %i.fa.fa-circle.mr-2>
+                Active
+            %td
+              4 Hours Ago
+          %tr
+            %td{:style => "vertical-align: middle;"}
+              %span.avatar.avatar32.bg-teal-light.text-teal.rounded
+                %i.fa.fa-tasks
+            %td
+              %a{:href => "#"} How to set full width of slider?
+              .fs12.text-muted
+                Started by
+                %a.b-b.d-inline-block.ml-2{:href => "#"} Johne Doe
+            %td
+              %span
+                Voice
+                %strong 1
+              %br
+              %span
+                Posts
+                %strong 5
+              %br
+            %td
+              %span.badge.badge-text.badge-info
+                %i.fa.fa-circle.mr-2>
+                Active
+            %td
+              8 Hours Ago
+          %tr
+            %td{:style => "vertical-align: middle;"}
+              %span.avatar.avatar32.bg-light.text-dark.rounded
+                %i.fa.fa-sign-in-alt
+            %td
+              %a{:href => "#"} Sign Signup pages full width
+              .fs12.text-muted
+                Started by
+                %a.b-b.d-inline-block.ml-2{:href => "#"} Sarah Doremi
+            %td
+              %span
+                Voice
+                %strong 3
+              %br
+              %span
+                Posts
+                %strong 23
+              %br
+            %td
+              %span.badge.badge-text.badge-info
+                %i.fa.fa-circle.mr-2>
+                Active
+            %td
+              2 Hours Ago
+          %tr
+            %td{:style => "vertical-align: middle;"}
+              %span.avatar.avatar32.bg-primary-light.text-primary.rounded
+                %i.fa.fa-edit
+            %td
+              %a{:href => "#"} Sidebar fullscreen with scroll
+              .fs12.text-muted
+                Started by
+                %a.b-b.d-inline-block.ml-2{:href => "#"} Jimmy ChuChu
+            %td
+              %span
+                Voice
+                %strong 13
+              %br
+              %span
+                Posts
+                %strong 43
+              %br
+            %td
+              %span.badge.badge-text.badge-success
+                %i.fa.fa-check.mr-2>
+                Closed
+            %td
+              1 Day Ago
+          %tr
+            %td{:style => "vertical-align: middle;"}
+              %span.avatar.avatar32.bg-warning-light.text-warning.rounded
+                %i.fa.fa-chart-line
+            %td
+              %a{:href => "#"} Charts  graphs in mobile view
+              .fs12.text-muted
+                Started by
+                %a.b-b.d-inline-block.ml-2{:href => "#"} Robih hood
+            %td
+              %span
+                Voice
+                %strong 3
+              %br
+              %span
+                Posts
+                %strong 9
+              %br
+            %td
+              %span.badge.badge-text.badge-danger
+                %i.fa.fa-exclamation.mr-2>
+                Open
+            %td
+              2 Days Ago
 
-= link_to 'New Client', new_client_path
+
+
+            -# %td= link_to 'Show', client
+            -# %td= link_to 'Edit', edit_client_path(client)
+            -# %td= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }
+
+    -# %table#data-table.table.mb-0{:cellspacing => "0", :width => "100%"}
+      %thead.dd-none
+        %tr
+          %th Category
+          %th Topic
+          %th Activity
+          %th Status
+          %th Posted
+      %tbody
+        %tr
+          %td{:style => "vertical-align: middle;"}
+            %span.avatar.avatar32.bg-warning-light.text-warning.rounded
+              %i.fa.fa-envelope
+          %td
+            %a{:href => "#"} How to make contact form working?
+            .fs12.text-muted
+              Started by
+              %a.b-b.d-inline-block.ml-2{:href => "#"} Sarah Doremi
+          %td
+            %span
+              Voice
+              %strong 3
+            %br
+              %span
+                Posts
+                %strong 23
+              %br
+              %td
+                %span.badge.badge-text.badge-info
+                  %i.fa.fa-circle.mr-2>
+                  Active
+              %td
+                2 Hours Ago
+            %tr
+              %td{:style => "vertical-align: middle;"}
+                %span.avatar.avatar32.bg-success-light.text-success.rounded
+                  %i.fa.fa-question
+              %td
+                %a{:href => "#"} Need a custom metrics widget
+                .fs12.text-muted
+                  Started by
+                  %a.b-b.d-inline-block.ml-2{:href => "#"} Robinho
+              %td
+                %span
+                  Voice
+                  %strong 0
+                %br
+                  %span
+                    Posts
+                    %strong 3
+                  %br
+                  %td
+                    %span.badge.badge-text.badge-info
+                      %i.fa.fa-circle.mr-2>
+                      Active
+                  %td
+                    4 Hours Ago
+                %tr
+                  %td{:style => "vertical-align: middle;"}
+                    %span.avatar.avatar32.bg-teal-light.text-teal.rounded
+                      %i.fa.fa-tasks
+                  %td
+                    %a{:href => "#"} How to set full width of slider?
+                    .fs12.text-muted
+                      Started by
+                      %a.b-b.d-inline-block.ml-2{:href => "#"} Johne Doe
+                  %td
+                    %span
+                      Voice
+                      %strong 1
+                    %br
+                      %span
+                        Posts
+                        %strong 5
+                      %br
+                      %td
+                        %span.badge.badge-text.badge-info
+                          %i.fa.fa-circle.mr-2>
+                          Active
+                      %td
+                        8 Hours Ago
+                    %tr
+                      %td{:style => "vertical-align: middle;"}
+                        %span.avatar.avatar32.bg-light.text-dark.rounded
+                          %i.fa.fa-sign-in-alt
+                      %td
+                        %a{:href => "#"} Sign Signup pages full width
+                        .fs12.text-muted
+                          Started by
+                          %a.b-b.d-inline-block.ml-2{:href => "#"} Sarah Doremi
+                      %td
+                        %span
+                          Voice
+                          %strong 3
+                        %br
+                          %span
+                            Posts
+                            %strong 23
+                          %br
+                          %td
+                            %span.badge.badge-text.badge-info
+                              %i.fa.fa-circle.mr-2>
+                              Active
+                          %td
+                            2 Hours Ago
+                        %tr
+                          %td{:style => "vertical-align: middle;"}
+                            %span.avatar.avatar32.bg-primary-light.text-primary.rounded
+                              %i.fa.fa-edit
+                          %td
+                            %a{:href => "#"} Sidebar fullscreen with scroll
+                            .fs12.text-muted
+                              Started by
+                              %a.b-b.d-inline-block.ml-2{:href => "#"} Jimmy ChuChu
+                          %td
+                            %span
+                              Voice
+                              %strong 13
+                            %br
+                              %span
+                                Posts
+                                %strong 43
+                              %br
+                              %td
+                                %span.badge.badge-text.badge-success
+                                  %i.fa.fa-check.mr-2>
+                                  Closed
+                              %td
+                                1 Day Ago
+                            %tr
+                              %td{:style => "vertical-align: middle;"}
+                                %span.avatar.avatar32.bg-warning-light.text-warning.rounded
+                                  %i.fa.fa-chart-line
+                              %td
+                                %a{:href => "#"} Charts  graphs in mobile view
+                                .fs12.text-muted
+                                  Started by
+                                  %a.b-b.d-inline-block.ml-2{:href => "#"} Robih hood
+                              %td
+                                %span
+                                  Voice
+                                  %strong 3
+                                %br
+                                  %span
+                                    Posts
+                                    %strong 9
+                                  %br
+                                  %td
+                                    %span.badge.badge-text.badge-danger
+                                      %i.fa.fa-exclamation.mr-2>
+                                      Open
+                                  %td
+                                    2 Days Ago
+
+
+  = link_to 'New Client', new_client_path

@@ -12,7 +12,7 @@ class Company < ApplicationRecord
   accepts_nested_attributes_for :emails, allow_destroy: true,
     :reject_if => proc { |attr| attr[:email].blank?  }
   accepts_nested_attributes_for :websites, allow_destroy: true,
-    :reject_if => proc { |attr| attr[:url].blank?  }
+    :reject_if => proc { |attr| attr[:website].blank?  }
 
   validates :name, presence: { message: 'is required' }
   # validates :name, uniqueness: {scope: :organization_id}

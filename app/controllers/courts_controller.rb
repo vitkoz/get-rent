@@ -1,6 +1,6 @@
 class CourtsController < ApplicationController
+  before_action :admin_only
   before_action :set_court, only: [:show, :edit, :update, :destroy]
-  before_action :set_page_title
 
   # GET /courts
   # GET /courts.json
@@ -75,7 +75,7 @@ private
       addresses_attributes: [:id, :primary, :company_id, :address_1, :address_2, :city, :state, :zip, :country, :category, :_destroy],
       phones_attributes: [:id, :primary, :company_id, :area_code, :phone_number, :category, :_destroy],
       emails_attributes: [:id, :primary, :company_id, :email, :category, :_destroy],
-      websites_attributes: [:id, :primary, :company_id, :category, :url]
+      websites_attributes: [:id, :primary, :company_id, :category, :website]
     )
   end
 

@@ -1,32 +1,165 @@
--# frozen_string_literal: true
 = simple_form_for @client do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  .row
+    .col-lg-6
+      .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+        .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+          .flex.d-flex.flex-column
+            %h3 Client Fields
+            %span.portlet-subtitle Required fields are marked with asterisk *
+        .portlet-body
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  .form-inputs
-    = f.input :name
+          .form-group
+            = f.input :name, class: 'form-control', placeholder: 'Client name'
 
-  %section#address_tab
-    = f.simple_fields_for :addresses do |address|
-      = render 'addresses/nested_fields', f: address
-    .links
-      = link_to_add_association f, :addresses, partial: 'addresses/nested_fields' do
-        %i.fa.fa-plus
-        Add Another
-  -# %section#phones_tab
-  -#   = f.fields_for :phones do |phone|
-  -#     = render 'phones/nested_fields', f: phone
-  -#   .links
-  -#     = link_to_add_association f, :phones, partial: 'phones/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
-  -#       %i.fa.fa-plus
-  -#       Add Another
-  -# %section#emails_tab
-  -#   = f.fields_for :emails do |email|
-  -#     = render 'emails/nested_fields', f: email
-  -#   .links
-  -#     = link_to_add_association f, :emails, partial: 'emails/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
-  -#       %i.fa.fa-plus
-  -#       Add Another
 
-  .form-actions
-    = f.button :submit
+      .form-group
+        = f.button :submit, class: 'btn btn-lg btn-primary'
+
+    .col-lg-6
+      .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+        .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+          .flex.d-flex.flex-column
+            %h3 Addresses
+        .portlet-body
+          = f.simple_fields_for :addresses do |address|
+            = render 'addresses/nested_fields', f: address
+
+          .links
+            = link_to_add_association f, :addresses, partial: 'addresses/nested_fields', class: 'btn btn-sm btn-primary' do
+              %i.fa.fa-plus
+              Add Another Address
+
+      .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+        .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+          .flex.d-flex.flex-column
+            %h3 Phones
+            %span.portlet-subtitle Required fields are marked with asterisk *
+        .portlet-body
+          = f.fields_for :phones do |phone|
+            = render 'phones/nested_fields', f: phone
+          .links
+            = link_to_add_association f, :phones, partial: 'phones/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+              %i.fa.fa-plus
+              Add Another
+
+      .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+        .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+          .flex.d-flex.flex-column
+            %h3 Emails
+            %span.portlet-subtitle Required fields are marked with asterisk *
+        .portlet-body
+          = f.fields_for :emails do |email|
+            = render 'emails/nested_fields', f: email
+          .links
+            = link_to_add_association f, :emails, partial: 'emails/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+              %i.fa.fa-plus
+              Add Another
+
+      .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+        .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+          .flex.d-flex.flex-column
+            %h3 Websites
+            %span.portlet-subtitle Required fields are marked with asterisk *
+        .portlet-body
+          = f.fields_for :websites do |website|
+            = render 'websites/nested_fields', f: website
+          .links
+            = link_to_add_association f, :websites, partial: 'websites/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
+              %i.fa.fa-plus
+              Add Another
+
+      -# .col-lg-6
+        .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+          .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+            .flex.d-flex.flex-column
+              %h3 Form Row
+              %span.portlet-subtitle Easy to read and use form layouts
+          .portlet-body
+            %form
+              .form-row
+                .form-group.col-md-6
+                  %label{:for => "inputEmail4"} Email
+                  %input#inputEmail4.form-control{:placeholder => "Email", :type => "email"}
+                .form-group.col-md-6
+                  %label{:for => "inputPassword4"} Password
+                  %input#inputPassword4.form-control{:placeholder => "Password", :type => "password"}
+              .form-group
+                %label{:for => "inputAddress"} Address
+                %input#inputAddress.form-control{:placeholder => "1234 Main St", :type => "text"}
+              .form-group
+                %label{:for => "inputAddress2"} Address 2
+                %input#inputAddress2.form-control{:placeholder => "Apartment, studio, or floor", :type => "text"}
+              .form-row
+                .form-group.col-md-6
+                  %label{:for => "inputCity"} City
+                  %input#inputCity.form-control{:type => "text"}
+                .form-group.col-md-4
+                  %label{:for => "inputState"} State
+                  %select#inputState.form-control
+                    %option Choose...
+                    %option ...
+                .form-group.col-md-2
+                  %label{:for => "inputZip"} Zip
+                  %input#inputZip.form-control{:type => "text"}
+              .d-block
+                .customUi-checkbox.checkboxUi-primary.pb-2
+                  %input#chk6{:name => "agree", :type => "checkbox"}
+                    %label{:for => "chk6"}
+                      %span.label-checkbox
+                      %span.label-helper Subscribe to newsletter
+              %button.btn.btn-primary{:type => "submit"} Sign in
+
+      -# .col-lg-6
+        .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+          .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+            .flex.d-flex.flex-column
+              %h3 Form Horizontal
+              %span.portlet-subtitle Easy to read and use form layouts
+          .portlet-body
+            %form
+              .form-group.row
+                %label.col-sm-2.col-form-label{:for => "nm3"} Name
+                .col-sm-10
+                  %input#nm3.form-control{:placeholder => "Name", :type => "email"}
+                .form-group.row
+                  %label.col-sm-2.col-form-label{:for => "inputEmail3"} Email
+                  .col-sm-10
+                    %input#inputEmail3.form-control{:placeholder => "Email", :type => "email"}
+                  .form-group.row
+                    %label.col-sm-2.col-form-label{:for => "inputPassword3"} Password
+                    .col-sm-10
+                      %input#inputPassword3.form-control{:placeholder => "Password", :type => "password"}
+                    %fieldset.form-group
+                      .row
+                        %label.col-form-label.col-sm-2.pt-0 Radios
+                        .col-sm-10
+                          .customUi-radio.radioUi-primary
+                            %input#rd0{:name => "td116", :type => "radio"}
+                              %label{:for => "rd0"}
+                                %span.label-radio
+                                %span.label-helper primary
+                            %br
+                              .customUi-radio.radioUi-primary
+                                %input#rd1{:name => "td116", :type => "radio"}
+                                  %label{:for => "rd1"}
+                                    %span.label-radio
+                                    %span.label-helper primary
+                                %br
+                                  .customUi-radio.radioUi-primary
+                                    %input#rd2{:name => "td116", :type => "radio"}
+                                      %label{:for => "rd2"}
+                                        %span.label-radio
+                                        %span.label-helper primary
+                              .form-group.row
+                                .col-sm-2 Checkbox
+                                .col-sm-10
+                                  .customUi-switchToggle.switchToggle-primary.switchToggle-air
+                                    %input#switch2{:type => "checkbox"}
+                                      %label{:for => "switch2"}
+                                        %span.label-switchToggle
+                                        %span.label-helper Accept terms  conditions
+                                .form-group.row
+                                  .col-sm-10.ml-auto
+                                    %button.btn.btn-primary.btn-block{:type => "submit"} Sign in

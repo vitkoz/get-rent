@@ -1,42 +1,29 @@
 .nested-fields
   .row
     .col-md-12
-      = link_to_remove_association f do
+      = link_to_remove_association f, class: "text-danger pull-right" do
         %i.fa.fa-times
-        x
 
   -# = f.input :category, collection: Address::CATEGORY
 
   .row
-    .col-md-6
+    .col-md-12
       .form-group
-        %label Address 1
-        = f.text_field :address_1, class: 'form-control'
-    .col-md-6
-      .form-group
-        %label Address 2
-        = f.text_field :address_2, class: 'form-control'
-  .row
-    .col-md-6
-      .form-group
-        %label City
-        = f.text_field :city, class: 'form-control'
+        = f.input :address_1, class: 'form-control', placeholder: "1234 Main St"
 
-    .col-md-6
       .form-group
-        %label State
-        = f.select :state, Lists::STATES, { include_blank: true }, class: 'form-control input-lg', id: 'study_id'
+        = f.input :address_2, class: 'form-control', placeholder: "Apt, suite, or floor"
 
-  .row
-    .col-md-6
-      .form-group
-        %label Zip
-        = f.text_field :zip, class: 'form-control'
+      .form-row
+        .form-group.col-md-6
+          = f.input :city, class: 'form-control'
+        .form-group.col-md-4
+          = f.input :state, collection: Lists::STATES, include_blank: true, class: 'form-control input-lg', id: 'study_id'
+        .form-group.col-md-2
+          = f.input :zip, class: 'form-control'
 
-    .col-md-6
       .form-group
         = f.input :country, priority: ["US","CA", "MX"], prompt: "Select country"
-  .row
-    .form-group.m-b-40.checkbox.checkbox-success.checkbox-circle
-      = f.check_box :primary, id: 'active', class: 'js-switch', data: { color: "#99d683" , "secondary-color" => "#f96262", size: "small" }
-      %label{ for: "active"} Primary Address?
+
+      .form-group.m-b-40.checkbox.checkbox-success.checkbox-circle
+        = f.input :primary, as: :boolean, label: 'Primary Address?'

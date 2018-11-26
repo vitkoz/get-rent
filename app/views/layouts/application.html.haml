@@ -20,8 +20,7 @@
         = render 'layouts/shared/subheader'
         .page-content
           .container-fluid
-            %p.mb-0
-              = render 'layouts/messages'
-              = yield
+            = render 'layouts/messages'
+            = yield
 
         = render 'layouts/shared/footer'
