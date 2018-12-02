@@ -1,9 +1,9 @@
 class CreateSuits < ActiveRecord::Migration[5.2]
   def change
     create_table :suits do |t|
-      t.references :court, foreign_key: true
+      t.integer :court_id, foreign_key: true
       t.references :renter, foreign_key: true
-      t.references :property, foreign_key: true
+      t.integer :property_id, foreign_key: true
       t.decimal :rental_rate, precision: 8, scale: 2
       t.integer :paid_through
       t.decimal :rent_due, precision: 8, scale: 2
