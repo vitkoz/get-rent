@@ -1,32 +1,60 @@
-.white-box.z-depth-1-half
-  = f.fields_for :addresses do |address|
-    = render 'addresses/nested_fields', f: address
-  .links
-    = link_to_add_association f, :addresses, partial: 'addresses/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
-      %i.fa.fa-plus
-      Address
+.portlet-box.portlet-gutter.ui-buttons-col.mb-30
+  .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+    .flex.d-flex.flex-column
+      %h3 Addresses
+    .portlet-tools
+      = fa_icon 'building-o', style: 'font-size: 24px'
+  .portlet-body
+    = f.simple_fields_for :addresses do |address|
+      = render 'addresses/nested_fields', f: address
 
-.white-box.z-depth-1-half
-  = f.fields_for :phones do |phone|
-    = render 'phones/nested_fields', f: phone
-  .links
-    = link_to_add_association f, :phones, partial: 'phones/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
-      %i.fa.fa-plus
-      Phone
+    .links
+      = link_to_add_association f, :addresses, partial: 'addresses/nested_fields', class: 'btn btn-sm btn-primary' do
+        = fa_icon 'plus'
+        Add Another Address
 
-.white-box.z-depth-1-half
-  = f.fields_for :emails do |email|
-    = render 'emails/nested_fields', f: email
-  .links
-    = link_to_add_association f, :emails, partial: 'emails/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
-      %i.fa.fa-plus
-      Email
+.portlet-box.portlet-gutter.ui-buttons-col.mb-30
+  .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+    .flex.d-flex.flex-column
+      %h3 Phones
+      %span.portlet-subtitle Required fields are marked with asterisk *
+    .portlet-tools
+      %i.fa.fa-phone{ style: 'font-size: 24px' }
+  .portlet-body
+    = f.fields_for :phones do |phone|
+      = render 'phones/nested_fields', f: phone
+    .links
+      = link_to_add_association f, :phones, partial: 'phones/nested_fields', class: 'btn btn-sm btn-primary' do
+        %i.fa.fa-plus
+        Add Another Phone
+
+.portlet-box.portlet-gutter.ui-buttons-col.mb-30
+  .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+    .flex.d-flex.flex-column
+      %h3 Emails
+      %span.portlet-subtitle Required fields are marked with asterisk *
+    .portlet-tools
+      %i.fa.fa-envelope-o{ style: 'font-size: 24px' }
+  .portlet-body
+    = f.fields_for :emails do |email|
+      = render 'emails/nested_fields', f: email
+    .links
+      = link_to_add_association f, :emails, partial: 'emails/nested_fields', class: 'btn btn-sm btn-primary' do
+        %i.fa.fa-plus
+        Add Another Email
 
 - if web
-  .white-box.z-depth-1-half
-    = f.fields_for :websites do |website|
-      = render 'websites/nested_fields', f: website
-    .links
-      = link_to_add_association f, :websites, partial: 'websites/nested_fields', class: 'btn btn-info btn-rounded btn-sm text-white z-depth-1-half' do
-        %i.fa.fa-plus
-        Website
+  .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+    .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+      .flex.d-flex.flex-column
+        %h3 Websites
+        %span.portlet-subtitle Required fields are marked with asterisk *
+      .portlet-tools
+        %i.fa.fa-globe{ style: 'font-size: 24px' }
+    .portlet-body
+      = f.fields_for :websites do |website|
+        = render 'websites/nested_fields', f: website
+      .links
+        = link_to_add_association f, :websites, partial: 'websites/nested_fields', class: 'btn btn-sm btn-primary' do
+          %i.fa.fa-plus
+          Add Another Website

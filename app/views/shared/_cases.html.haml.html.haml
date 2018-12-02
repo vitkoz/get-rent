@@ -1,0 +1,144 @@
+.bg-white.p-3.border1.rounded
+  %div{:role => "form"}
+    .title-sep.sep-white.text-left.text-primary.mb-10
+      %span.rounded Profile Settings
+    .row
+      .col-sm-6
+        .form-group
+          %label{:for => "fname"} First Name
+          %input#fname.form-control{:placeholder => "Sarah", :type => "text"}/
+      .col-sm-6
+        .form-group
+          %label{:for => "lname"} Last Name
+          %input#lname.form-control{:placeholder => "Taylor", :type => "text"}/
+    .row
+      .col-sm-6
+        .form-group
+          %label{:for => "username"} Username
+          %input#username.form-control{:placeholder => "@sarah856", :type => "text"}/
+      .col-sm-6
+        .form-group
+          %label{:for => "email"} Email Address
+          %input#email.form-control{:placeholder => "s856@gmail.com", :type => "email"}/
+    .row
+      .col-sm-6
+        .form-group
+          %label{:for => "phn"} Phone
+          %input#phn.form-control{:placeholder => "+91 9887568614", :type => "text"}/
+      .col-sm-6
+        .form-group
+          %label{:for => "com"} Company
+          %input#com.form-control{:placeholder => "design_mylife", :type => "email"}/
+      .col-sm-12
+        .form-group
+          %label{:for => "add"} Address
+          %input#add.form-control{:placeholder => "123, California, Usa, 302012", :type => "email"}/
+      .col-sm-12
+        .form-group.mb-0
+          %label Social Media
+          .row
+            .col-6
+              .input-icon-group
+                .input-icon-append
+                  %i.fab.fa-facebook-f
+                  %input.form-control{:placeholder => "designer.rakesh.sharma", :type => "text"}/
+            .col-6
+              .input-icon-group
+                .input-icon-append
+                  %i.fab.fa-twitter
+                  %input.form-control{:placeholder => "@design_mylife", :type => "text"}/
+            .col-6
+              .input-icon-group
+                .input-icon-append
+                  %i.fab.fa-linkedin
+                  %input.form-control{:placeholder => "rakesh.sharma856", :type => "text"}/
+            .col-6
+              .input-icon-group
+                .input-icon-append
+                  %i.fab.fa-google-plus
+                  %input.form-control{:placeholder => "RakeshUidesigner", :type => "text"}/
+    .row
+      .col-sm-12
+        .form-group
+          %label{:for => "skills"} Skills
+          %select#skills.form-control{"data-placeholder" => "Select an option", :multiple => "multiple"}
+            %option{:selected => "selected", :value => "1"} Bootstrap
+            %option{:selected => "selected", :value => "2"} Css3
+            %option{:selected => "selected", :value => "3"} Html5
+            %option{:selected => "selected", :value => "4"} Jquery
+            %option{:value => "5"} AngularJs
+            %option{:value => "1"} Wordpress
+            %option{:value => "2"} ReactJs
+            %option{:value => "3"} VueJs
+    .title-sep.sep-white.text-left.text-primary.mt-30.mb-10
+      %span.rounded Account Settings
+    .row
+      .col-sm-6
+        .form-group
+          %label{:for => "ckey"} Client Id
+          %input#ckey.form-control{:disabled => "disabled", :placeholder => "dsf8f79sdfdsfsdsad99gsu7wfh", :type => "text"}/
+      .col-sm-6
+        .form-group
+          %label{:for => "skey"} Secret Key
+          %input#skey.form-control{:disabled => "disabled", :placeholder => "dsf8f79sdfdsfsdsad99gsu7969", :type => "text"}/
+    .title-sep.sep-white.text-left.text-primary.mt-30.mb-10
+      %span.rounded Account Settings
+    .row
+      .col-sm-12
+        .form-group
+          %label{:for => "ps1"} Old Password
+          %input#ps1.form-control{:placeholder => ".......", :type => "password"}/
+      .col-sm-6
+        .form-group
+          %label{:for => "ps2"} New Password
+          %input#ps2.form-control{:placeholder => "........", :type => "password"}/
+      .col-sm-6
+        .form-group
+          %label{:for => "ps3"} Confirm Password
+          %input#ps3.form-control{:placeholder => "........", :type => "password"}/
+    .title-sep.sep-white.text-left.text-primary.mt-30.mb-10
+      %span.rounded Notifications
+    .row
+      .col-sm-12
+        .customUi-checkbox.checkbox-rounded.checkboxUi-primary
+          %input#noti1{:type => "checkbox"}/
+          %label{:for => "noti1"}
+            %span.label-checkbox
+            %span.label-helper Anyone seeing my profile
+        %br/
+        .customUi-checkbox.checkbox-rounded.checkboxUi-teal
+          %input#noti2{:type => "checkbox"}/
+          %label{:for => "noti2"}
+            %span.label-checkbox
+            %span.label-helper Show new notifications
+        %br/
+        .customUi-checkbox.checkbox-rounded.checkboxUi-dark
+          %input#noti3{:type => "checkbox"}/
+          %label{:for => "noti3"}
+            %span.label-checkbox
+            %span.label-helper Subscribe for newsletter
+        %br/
+        .customUi-checkbox.checkbox-rounded.checkboxUi-success
+          %input#noti4{:type => "checkbox"}/
+          %label{:for => "noti4"}
+            %span.label-checkbox
+            %span.label-helper Available for Hire
+    .title-sep.sep-white.text-left.text-primary.mt-30.mb-10
+      %span.rounded Avatar / thumbs
+    .form-group
+      %label.mr-2{:for => "thumb"} Thumbnail
+      %br/
+      %img.mb-20.img-fluid.rounded{:alt => "", :src => "images/avatar1.jpg", :width => "80"}/
+      %input#thumb.form-control{:type => "file"}/
+      %span.helper.d-block.fs12.text-muted.pt-2 Thumnail size - 80x80 ( .jpg, .png )
+    %hr/
+    .form-group
+      %label{:for => "cover"} Cover
+      %br/
+      %img.mb-20.img-fluid.rounded{:alt => "", :src => "images/cover1.jpg"}/
+      %input#cover.form-control{:type => "file"}/
+      %span.helper.d-block.fs12.text-muted.pt-2 Thumnail size - 1170x400 ( .jpg, .png )
+    .pt-3.text-right
+      %button.btn.btn-icon.btn-gradient-primary{:type => "button"}
+        %i.fa.fa-cog
+        Update Changes

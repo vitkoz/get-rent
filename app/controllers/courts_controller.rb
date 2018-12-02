@@ -80,9 +80,9 @@ private
   end
 
   def populate_contact_info
-    @court.addresses << Address.new if @client.addresses.empty?
-    @court.emails << Email.new if @client.emails.empty?
-    @court.phones << Phone.new if @client.phones.empty?
-    @court.websites << Website.new if @client.websites.empty?
+    @court.addresses << Address.new if @court.addresses.empty?
+    @court.emails << Email.new if @court.emails.empty?
+    @court.phones << Phone.new if @court.phones.empty?
+    @court.websites << Website.new if @court.websites.empty?
   end
 end

@@ -1,12 +1,70 @@
-%p#notice= notice
+- content_for :page_icon do
+  icon-Business-Mens
 
-%p
-  %b Type:
-  = @property.type
-%p
-  %b Name:
+- content_for :page_title do
   = @property.name
 
-= link_to 'Edit', edit_property_path(@property)
-\|
-= link_to 'Back', properties_path
+- content_for :secondary_page do
+  %li.breadcrumb-item
+    = link_to 'Properties', properties_path
+
+.d-flex.flex.flex-column
+  .flex.p-3.pt-0.pb-0
+    .row.fullscreen
+      -# Left column that shows name, address, main buttons
+      .col-xl-3.col-lg-4.b-r.col-md-5.bg-white.d-flex.flex-column.p-4
+        .text-center
+          -# .progress-thumb
+            %i.on.states
+            %span.donut1{"data-peity" => "{}"} 66,24
+            %img.img-fluid.rounded-circle{:alt => "", :src => "images/avatar1.jpg"}/
+          .p-3
+            %h5.fs-1x.mb-0.font400= @property.name
+            %p.text-muted
+              = @property.client.name
+              %br
+              -# = fa_icon 'map-marker', class: 'text-muted mr-2 fs12'
+              .text-muted.mr-2.fs12
+                #{addresses(@property.addresses)}
+            .pb-3
+              %button.btn.btn-block.mb-2.btn-icon.btn-success{:type => "button"}
+                = fa_icon 'comments'
+                Send Message
+              %button.btn.btn-block.mb-2.btn-icon.btn-primary{:type => "button"}
+                = fa_icon 'user-circle'
+                follow
+            .clearfix
+              %a.btn-icon-o.btn-border-o.si-colored-facebook.btn-icon-sm{:href => "javascript:void(0)"}
+                = fa_icon 'facebook-f'
+              %a.btn-icon-o.btn-border-o.si-colored-twitter.btn-icon-sm{:href => "javascript:void(0)"}
+                = fa_icon 'twitter'
+              %a.btn-icon-o.btn-border-o.si-colored-linkedin.btn-icon-sm{:href => "javascript:void(0)"}
+                = fa_icon 'linkedin'
+
+      .col-xl-9.col-lg-8.col-md-7.d-flex.no-padding.flex-column
+        .profile-content.p-4
+          .profile-cover
+            = image_tag 'properties/building1.jpg', class: 'img_fluid'
+          / Nav tabs
+          %ul.nav.nav-pills.profile-tabs.pb-3{:role => "tablist"}
+            %li.nav-item{:role => "presentation"}
+              %a.nav-link.active{"aria-controls" => "tb1", "data-toggle" => "tab", :href => "#tb1", :role => "tab"}
+                = fa_icon 'pencil', class: 'fs10 mr-1'
+                Activities
+            %li.nav-item{:role => "presentation"}
+              %a.nav-link{"aria-controls" => "tb2", "data-toggle" => "tab", :href => "#tb2", :role => "tab"}
+                = fa_icon 'user-circle', class: 'fs10 mr-1'
+                Profile
+            %li.nav-item{:role => "presentation"}
+              %a.nav-link{"aria-controls" => "tb3", "data-toggle" => "tab", :href => "#tb3", :role => "tab"}
+                = fa_icon 'cog', class: 'fs10 mr-1'
+                Settings
+          / Tab panes
+          .tab-content
+            #tb1.tab-pane.active.show{:role => "tabpanel"}
+              = render 'shared/activities.html.haml', activities: @property
+            #tb2.tab-pane{:role => "tabpanel"}
+              = render 'shared/profile.html.haml', entity: @property
+            #tb3.tab-pane{:role => "tabpanel"}
+              = render 'shared/cases.html.haml', entity: @property
+  / content

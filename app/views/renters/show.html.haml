@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Type:
+  = @renter.type
+%p
+  %b Name:
+  = @renter.name
+
+= link_to 'Edit', edit_renter_path(@renter)
+\|
+= link_to 'Back', renters_path

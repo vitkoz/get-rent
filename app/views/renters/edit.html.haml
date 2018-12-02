@@ -2,14 +2,17 @@
   icon-Business-Mens
 
 - content_for :page_title do
-  Add a
-  %strong Court
+  Edit
+  %strong= @renter.full_name
 
 - content_for :secondary_page do
   %li.breadcrumb-item
-    = link_to 'Courts', courts_path
+    = link_to 'Tenants', renters_path
+
 
 = render 'form'
 
 .row
-  = link_to 'Back', courts_path
+  = link_to 'Show', @renter
+  \|
+  = link_to 'Back', renters_path

@@ -1,10 +1,10 @@
-= simple_form_for @client do |f|
+= simple_form_for @renter do |f|
   .row
     .col-lg-6
       .portlet-box.portlet-gutter.ui-buttons-col.mb-30
         .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
           .flex.d-flex.flex-column
-            %h3 Client Fields
+            %h3 Tenant Info
             %span.portlet-subtitle Required fields are marked with asterisk *
           .portlet-tools
             = fa_icon 'address-card-o', style: 'font-size: 24px'
@@ -13,7 +13,13 @@
           = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
           .form-group
-            = f.input :name, class: 'form-control', placeholder: 'Client name'
+            = f.input :first_name, class: 'form-control', placeholder: 'First name'
+          .form-group
+            = f.input :last_name, class: 'form-control', placeholder: 'Last name'
+          .form-group
+            = f.input :dob, label: 'Date of Birth', class: 'form-control', placeholder: 'Date of Birth'
+          .form-group
+            = f.input :ssn, label: 'SSN', class: 'form-control', placeholder: 'SSN'
 
 
       .form-group
@@ -21,4 +27,4 @@
         = link_to 'Cancel', :back, class: 'btn btn-link'
 
     .col-lg-6
-      = render 'shared/nested_address_phone_email_web_no_tabs', f: f, web: true
+      = render 'shared/nested_address_phone_email_web_no_tabs', f: f, web: false

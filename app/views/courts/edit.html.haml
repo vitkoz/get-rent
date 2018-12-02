@@ -1,7 +1,18 @@
-%h1 Editing court
+- content_for :page_icon do
+  icon-Business-Mens
+
+- content_for :page_title do
+  Edit
+  %strong= @court.name
+
+- content_for :secondary_page do
+  %li.breadcrumb-item
+    = link_to 'Courts', courts_path
+
 
 = render 'form'
 
-= link_to 'Show', @court
-\|
-= link_to 'Back', courts_path
+.row
+  = link_to 'Show', @court
+  \|
+  = link_to 'Back', courts_path

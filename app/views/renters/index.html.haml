@@ -3,44 +3,43 @@
 
 - content_for :page_title do
   Our
-  %strong Clients
+  %strong Tenants
 
 .row
   .bg-white.table-responsive.rounded.shadow-sm.pt-3.pb-3.mb-30
     .clearfix.b-b.mb-3.pb-2
-      = link_to new_client_path, class:'btn btn-dark btn-icon float-right mr-3' do
+      = link_to new_renter_path, class:'btn btn-dark btn-icon float-right mr-3' do
         %i.fa.fa-plus
-        New Client
-      %h6.pl-3.pr-3.text-capitalize.font500.mb-20 Clients List
+        New Tenant
+      %h6.pl-3.pr-3.text-capitalize.font500.mb-20 Tenants List
 
     %table#data-table.table.mb-0{:cellspacing => "0", :width => "100%"}
       %thead.dd-none
         %tr
           %th Tasks
-          %th Client Name
+          %th Tenant Name
           %th Total Cases
           %th Status
           %th Created
 
       %tbody
-        - @clients.each do |client|
+        - @renters.each do |renter|
           %tr
             %td
-              = link_to edit_client_path(client), class: 'd-inline-block ml-2 text-danger', title: 'Edit Info' do
+              = link_to edit_renter_path(renter), class: 'd-inline-block ml-2 text-danger', title: 'Edit Info' do
                 = fa_icon 'edit', style: 'font-size: 20px;'
-              = link_to client, class: 'd-inline-block ml-2 text-success', title: 'Reports' do
+              = link_to renter, class: 'd-inline-block ml-2 text-success', title: 'Reports' do
                 = fa_icon 'tasks', style: 'font-size: 20px;'
-              = link_to client, class: 'd-inline-block ml-2 text-info', title: 'Cases' do
+              = link_to renter, class: 'd-inline-block ml-2 text-info', title: 'Cases' do
                 = fa_icon 'line-chart', style: 'font-size: 20px;'
-              = link_to client, class: 'd-inline-block ml-2 text-warning', title: 'Correspondense' do
+              = link_to renter, class: 'd-inline-block ml-2 text-warning', title: 'Correspondense' do
                 = fa_icon 'envelope', style: 'font-size: 20px;'
             %td
-              = link_to client.name, client
+              = link_to renter.full_name, renter
               .fs12.text-muted
-                #{addresses(client.addresses)}
-                #{emails(client.emails)}
-                #{phones(client.phones)}
-                #{websites(client.websites)}
+                #{addresses(renter.addresses)}
+                #{emails(renter.emails)}
+                #{phones(renter.phones)}
             %td
               %span
                 Cases
@@ -55,7 +54,7 @@
                 = fa_icon 'circle', class: 'mr-2'
                 Active
             %td
-              = client.created_at.strftime('%m/%d/%Y %I:%M %P')
+              = renter.created_at.strftime('%m/%d/%Y %I:%M %P')
 
 
           -# %tr
@@ -181,9 +180,9 @@
           -#
           -#
           -#
-          -#   -# %td= link_to 'Show', client
-          -#   -# %td= link_to 'Edit', edit_client_path(client)
-          -#   -# %td= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }
+          -#   -# %td= link_to 'Show', renter
+          -#   -# %td= link_to 'Edit', edit_renter_path(renter)
+          -#   -# %td= link_to 'Destroy', renter, method: :delete, data: { confirm: 'Are you sure?' }
 
     -# %table#data-table.table.mb-0{:cellspacing => "0", :width => "100%"}
       %thead.dd-none
@@ -340,4 +339,4 @@
                                     2 Days Ago
 
 
-  = link_to 'New Client', new_client_path
+  = link_to 'New Tenant', new_renter_path

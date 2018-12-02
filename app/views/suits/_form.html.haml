@@ -1,0 +1,38 @@
+= simple_form_for @tenant do |f|
+  .row
+    .col-lg-6
+      .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+        .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+          .flex.d-flex.flex-column
+            %h3 Tenant Info
+            %span.portlet-subtitle Required fields are marked with asterisk *
+          .portlet-tools
+            = fa_icon 'address-card-o', style: 'font-size: 24px'
+        .portlet-body
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+          .form-group
+            = f.association :court
+            = f.association :renter
+            = f.association :property
+            = f.input :rental_rate
+            = f.input :paid_through
+            = f.input :rent_due
+            = f.input :other
+            = f.input :balance
+            = f.input :court_date
+            = f.input :rent
+            = f.input :cost
+            = f.input :writ_date
+            = f.input :case_num
+            = f.input :def_date
+            = f.input :file_judgment
+            = f.input :file_writ
+            = f.input :paid
+            = f.input :signed
+            = f.input :signed_date
+
+      .form-group
+        = f.button :submit, class: 'btn btn-lg btn-primary'
+        = link_to 'Cancel', :back, class: 'btn btn-link'

@@ -1,19 +1,58 @@
-%h1 Listing courts
+- content_for :page_icon do
+  icon-Business-Mens
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
+- content_for :page_title do
+  Our
+  %strong Courts
 
-  %tbody
-    - @courts.each do |court|
-      %tr
-        %td= link_to 'Show', court
-        %td= link_to 'Edit', edit_court_path(court)
-        %td= link_to 'Destroy', court, method: :delete, data: { confirm: 'Are you sure?' }
+.row
+  .bg-white.table-responsive.rounded.shadow-sm.pt-3.pb-3.mb-30
+    .clearfix.b-b.mb-3.pb-2
+      = link_to new_court_path, class:'btn btn-dark btn-icon float-right mr-3' do
+        %i.fa.fa-plus
+        New Court
+      %h6.pl-3.pr-3.text-capitalize.font500.mb-20 Courts List
 
-%br
+    %table#data-table.table.mb-0{:cellspacing => "0", :width => "100%"}
+      %thead.dd-none
+        %tr
+          %th Tasks
+          %th District Ct #
+          %th Total Cases
+          %th Status
+          %th Created
 
-= link_to 'New Court', new_court_path
+      %tbody
+        - @courts.each do |court|
+          %tr
+            %td
+              = link_to edit_court_path(court), class: 'd-inline-block ml-2 text-danger', title: 'Edit Info' do
+                = fa_icon 'edit', style: 'font-size: 20px;'
+              = link_to court, class: 'd-inline-block ml-2 text-success', title: 'Reports' do
+                = fa_icon 'tasks', style: 'font-size: 20px;'
+              = link_to court, class: 'd-inline-block ml-2 text-info', title: 'Cases' do
+                = fa_icon 'line-chart', style: 'font-size: 20px;'
+              = link_to court, class: 'd-inline-block ml-2 text-warning', title: 'Correspondense' do
+                = fa_icon 'envelope', style: 'font-size: 20px;'
+            %td
+              = link_to court.name, court
+              .fs12.text-muted
+                #{addresses(court.addresses)}
+                #{emails(court.emails)}
+                #{phones(court.phones)}
+                #{websites(court.websites)}
+            %td
+              %span
+                Cases
+                %strong 3
+              %br
+              %span
+                Pending
+                %strong 23
+              %br
+            %td
+              %span.badge.badge-text.badge-info
+                = fa_icon 'circle', class: 'mr-2'
+                Active
+            %td
+              = court.created_at.strftime('%m/%d/%Y %I:%M %P')

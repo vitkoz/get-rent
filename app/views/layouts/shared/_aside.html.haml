@@ -37,6 +37,11 @@
           %li.nav-title
             Main
             %span.nav-thumbnail MN
+          %li{ class: "#{'active' if current_page?(renters_path)}" }
+            %i.icon-Business-Mens.nav-thumbnail
+            = link_to renters_path do
+              %span.nav-text
+                Tenants
 
     .aside-footer.p-3.pl-25
       %div

@@ -1,20 +1,17 @@
 .nested-fields
   .row
     .col-md-12
-      = link_to_remove_association f, class: "btn btn-danger btn-circle text-white z-depth-1 pull-right", style: 'padding: 0; width: 18px; height: 18px;' do
+      = link_to_remove_association f, class: "text-danger pull-right" do
         %i.fa.fa-times
 
   .row
-    .col-md-3
-      .form-group
-        %label Area Code
-        = f.text_field :area_code, class: 'form-control'
+    .col-md-12
+      .form-row
+        .form-group.col-md-3
+          = f.input :area_code, class: 'form-control', placeholder: "212"
 
-    .col-md-9
-      .form-group
-        %label Number
-        = f.text_field :phone_number, class: 'form-control'
-  .row
-    .form-group.m-b-40.checkbox.checkbox-success.checkbox-circle
-      = f.check_box :primary, id: 'active', class: 'js-switch', data: { color: "#99d683" , "secondary-color" => "#f96262", size: "small" }
-      %label{ for: "active"} Primary Phone?
+        .form-group.col-md-6
+          = f.input :phone_number, class: 'form-control', placeholder: "555-1212", type: 'tel'
+
+      .form-group.m-b-40.checkbox.checkbox-success.checkbox-circle
+        = f.input :primary, as: :boolean, label: 'Primary Phone?'

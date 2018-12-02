@@ -3,13 +3,13 @@
 
 - content_for :page_title do
   Add a
-  %strong Court
+  %strong Case
 
 - content_for :secondary_page do
   %li.breadcrumb-item
-    = link_to 'Courts', courts_path
+    = link_to 'Cases', suits_path
 
 = render 'form'
 
 .row
-  = link_to 'Back', courts_path
+  = link_to 'Back', suits_path

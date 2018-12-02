@@ -1,16 +1,24 @@
--# frozen_string_literal: true
-= simple_form_for(@court) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+= simple_form_for @court do |f|
+  .row
+    .col-lg-6
+      .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+        .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+          .flex.d-flex.flex-column
+            %h3 Court Fields
+            %span.portlet-subtitle Required fields are marked with asterisk *
+          .portlet-tools
+            = fa_icon 'address-card-o', style: 'font-size: 24px'
+        .portlet-body
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  = @court.errors.full_messages
+          .form-group
+            = f.input :name, class: 'form-control', placeholder: 'Court name'
 
-  %ul
-    - @court.errors.each do |msg|
-      %li= msg.to_sentence
 
-  .form-inputs
-    = f.input :name
+      .form-group
+        = f.button :submit, class: 'btn btn-lg btn-primary'
+        = link_to 'Cancel', :back, class: 'btn btn-link'
 
-  .form-actions
-    = f.button :submit
+    .col-lg-6
+      = render 'shared/nested_address_phone_email_web_no_tabs', f: f, web: true

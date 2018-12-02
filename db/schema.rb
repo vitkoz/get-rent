@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_25_192810) do
+ActiveRecord::Schema.define(version: 2018_12_02_223951) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "category"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2018_11_25_192810) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "client_id"
     t.index ["category"], name: "index_companies_on_category"
     t.index ["type"], name: "index_companies_on_type"
   end
@@ -87,6 +88,33 @@ ActiveRecord::Schema.define(version: 2018_11_25_192810) do
     t.index ["person_id"], name: "index_phones_on_person_id"
     t.index ["primary"], name: "index_phones_on_primary"
     t.index ["user_id"], name: "index_phones_on_user_id"
+  end
+
+  create_table "suits", force: :cascade do |t|
+    t.integer "court_id"
+    t.integer "renter_id"
+    t.integer "property_id"
+    t.decimal "rental_rate", precision: 8, scale: 2
+    t.integer "paid_through"
+    t.decimal "rent_due", precision: 8, scale: 2
+    t.decimal "other", precision: 8, scale: 2
+    t.decimal "balance", precision: 8, scale: 2
+    t.date "court_date"
+    t.decimal "rent", precision: 8, scale: 2
+    t.decimal "cost", precision: 8, scale: 2
+    t.date "writ_date"
+    t.string "case_num"
+    t.date "def_date"
+    t.boolean "file_judgment"
+    t.boolean "file_writ"
+    t.boolean "paid"
+    t.boolean "signed"
+    t.date "signed_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["court_id"], name: "index_suits_on_court_id"
+    t.index ["property_id"], name: "index_suits_on_property_id"
+    t.index ["renter_id"], name: "index_suits_on_renter_id"
   end
 
   create_table "users", force: :cascade do |t|

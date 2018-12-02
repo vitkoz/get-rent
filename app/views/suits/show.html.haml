@@ -1,0 +1,63 @@
+%p#notice= notice
+
+%p
+  %b Court:
+  = @suit.court
+%p
+  %b Renter:
+  = @suit.renter
+%p
+  %b Property:
+  = @suit.property
+%p
+  %b Rental rate:
+  = @suit.rental_rate
+%p
+  %b Paid through:
+  = @suit.paid_through
+%p
+  %b Rent due:
+  = @suit.rent_due
+%p
+  %b Other:
+  = @suit.other
+%p
+  %b Balance:
+  = @suit.balance
+%p
+  %b Court date:
+  = @suit.court_date
+%p
+  %b Rent:
+  = @suit.rent
+%p
+  %b Cost:
+  = @suit.cost
+%p
+  %b Writ date:
+  = @suit.writ_date
+%p
+  %b Case num:
+  = @suit.case_num
+%p
+  %b Def date:
+  = @suit.def_date
+%p
+  %b File judgment:
+  = @suit.file_judgment
+%p
+  %b File writ:
+  = @suit.file_writ
+%p
+  %b Paid:
+  = @suit.paid
+%p
+  %b Signed:
+  = @suit.signed
+%p
+  %b Signed date:
+  = @suit.signed_date
+
+= link_to 'Edit', edit_suit_path(@suit)
+\|
+= link_to 'Back', suits_path
