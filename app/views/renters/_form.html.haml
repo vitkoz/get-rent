@@ -12,8 +12,14 @@
           = f.error_notification
           = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-          -# .form-group
+          .form-group
             = f.association :property
+
+          .form-group
+            = f.input :unit, class: 'form-control', placeholder: 'Unit / Apt / Suite'
+
+          .form-group
+            = f.input :rent, class: 'form-control', placeholder: 'Monthly rent'
 
           .form-group
             = f.input :first_name, class: 'form-control', placeholder: 'First name'

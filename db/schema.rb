@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_195501) do
+ActiveRecord::Schema.define(version: 2018_12_04_032719) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "category"
@@ -69,6 +69,10 @@ ActiveRecord::Schema.define(version: 2018_12_03_195501) do
     t.string "ssn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "property_id"
+    t.string "unit"
+    t.decimal "rent", precision: 8, scale: 2
+    t.index ["property_id"], name: "index_people_on_property_id"
     t.index ["type"], name: "index_people_on_type"
     t.index ["user_id"], name: "index_people_on_user_id"
   end
@@ -88,6 +92,15 @@ ActiveRecord::Schema.define(version: 2018_12_03_195501) do
     t.index ["person_id"], name: "index_phones_on_person_id"
     t.index ["primary"], name: "index_phones_on_primary"
     t.index ["user_id"], name: "index_phones_on_user_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.integer "property_id"
+    t.integer "renter_id"
+    t.string "unit"
+    t.decimal "rent", precision: 8, scale: 2
+    t.index ["property_id"], name: "index_rentals_on_property_id"
+    t.index ["renter_id"], name: "index_rentals_on_renter_id"
   end
 
   create_table "suits", force: :cascade do |t|

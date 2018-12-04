@@ -35,41 +35,41 @@
         %th Signed
         %th Signed date
 
-  %tbody
-    - @suits.each do |suit|
-      %tr
-        %td
-          = link_to suit.renter.full_name, suit.renter
-          .fs12.text-muted
-            #{addresses(suit.renter.addresses)}
-            #{emails(suit.renter.emails)}
-            #{phones(suit.renter.phones)}
-        %td
-          = link_to suit.court.name, suit.court
-          .fs12.text-muted
-            #{addresses(suit.court.addresses)}
-            #{emails(suit.court.emails)}
-            #{phones(suit.court.phones)}
-            #{websites(suit.court.websites)}
-        %td
-          = link_to suit.property.name, suit.property
-          .fs12.text-muted
-            #{addresses(suit.property.addresses)}
-            #{emails(suit.property.emails)}
-            #{phones(suit.property.phones)}
-            #{websites(suit.property.websites)}
-        %td= suit.rental_rate
-        %td= suit.paid_through
-        %td= suit.rent_due
-        %td= suit.other
-        %td= suit.balance
-        %td= suit.court_date
-        %td= suit.rent
-        %td= suit.cost
-        %td= suit.writ_date
-        %td= suit.case_num
-        %td= suit.file_judgment
-        %td= suit.file_writ
-        %td= suit.paid
-        %td= suit.signed
-        %td= suit.signed_date
+      %tbody
+        - @suits.each do |suit|
+          %tr
+            %td
+              = link_to suit.renter.full_name, suit.renter
+              .fs12.text-muted
+                #{suit.renter.unit}
+                #{emails(suit.renter.emails)}
+                #{phones(suit.renter.phones)}
+            %td
+              = link_to suit.court.name, suit.court
+              .fs12.text-muted
+                #{addresses(suit.court.addresses)}
+                #{emails(suit.court.emails)}
+                #{phones(suit.court.phones)}
+                #{websites(suit.court.websites)}
+            %td
+              = link_to suit.renter.property.name, suit.renter.property
+              .fs12.text-muted
+                #{addresses(suit.renter.property.addresses)}
+                #{emails(suit.renter.property.emails)}
+                #{phones(suit.renter.property.phones)}
+                #{websites(suit.renter.property.websites)}
+            %td= suit.rental_rate
+            %td= suit.paid_through
+            %td= suit.rent_due
+            %td= suit.other
+            %td= suit.balance
+            %td= suit.court_date
+            %td= suit.rent
+            %td= suit.cost
+            %td= suit.writ_date
+            %td= suit.case_num
+            %td= suit.file_judgment
+            %td= suit.file_writ
+            %td= suit.paid
+            %td= suit.signed
+            %td= suit.signed_date
