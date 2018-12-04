@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_223951) do
+ActiveRecord::Schema.define(version: 2018_12_03_195501) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "category"
@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 2018_12_02_223951) do
     t.decimal "cost", precision: 8, scale: 2
     t.date "writ_date"
     t.string "case_num"
-    t.date "def_date"
     t.boolean "file_judgment"
     t.boolean "file_writ"
     t.boolean "paid"

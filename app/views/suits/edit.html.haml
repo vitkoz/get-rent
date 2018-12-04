@@ -1,3 +1,13 @@
-%h1 Editing suit
+- content_for :page_icon do
+  icon-Suitcase
+
+- content_for :page_title do
+  Edit
+  %strong= @suit.full_name
+
+- content_for :secondary_page do
+  %li.breadcrumb-item
+    = link_to 'Cases', suits_path
+
 
 = render 'form'

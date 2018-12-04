@@ -1,17 +1,18 @@
-.portlet-box.portlet-gutter.ui-buttons-col.mb-30
-  .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
-    .flex.d-flex.flex-column
-      %h3 Addresses
-    .portlet-tools
-      = fa_icon 'building-o', style: 'font-size: 24px'
-  .portlet-body
-    = f.simple_fields_for :addresses do |address|
-      = render 'addresses/nested_fields', f: address
+- if address
+  .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+    .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+      .flex.d-flex.flex-column
+        %h3 Addresses
+      .portlet-tools
+        = fa_icon 'building-o', style: 'font-size: 24px'
+    .portlet-body
+      = f.simple_fields_for :addresses do |address|
+        = render 'addresses/nested_fields', f: address
 
-    .links
-      = link_to_add_association f, :addresses, partial: 'addresses/nested_fields', class: 'btn btn-sm btn-primary' do
-        = fa_icon 'plus'
-        Add Another Address
+      .links
+        = link_to_add_association f, :addresses, partial: 'addresses/nested_fields', class: 'btn btn-sm btn-primary' do
+          = fa_icon 'plus'
+          Add Another Address
 
 .portlet-box.portlet-gutter.ui-buttons-col.mb-30
   .portlet-header.flex-row.flex.d-flex.align-items-center.b-b

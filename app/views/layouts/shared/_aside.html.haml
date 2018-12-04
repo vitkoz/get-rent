@@ -38,10 +38,15 @@
             Main
             %span.nav-thumbnail MN
           %li{ class: "#{'active' if current_page?(renters_path)}" }
-            %i.icon-Business-Mens.nav-thumbnail
+            %i.icon-Libra-2.nav-thumbnail
             = link_to renters_path do
               %span.nav-text
                 Tenants
+          %li{ class: "#{'active' if current_page?(suits_path)}" }
+            %i.icon-Suitcase.nav-thumbnail
+            = link_to suits_path do
+              %span.nav-text
+                Cases
 
     .aside-footer.p-3.pl-25
       %div

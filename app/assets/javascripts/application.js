@@ -19,4 +19,7 @@
 //= require plugins/plugins
 //= require appUi-custom
 
+//= require dt-picker/jquery.datetimepicker.full.min
+//= require plugins-custom/pickers-custom
+
 //= require_tree .

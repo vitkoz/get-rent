@@ -12,12 +12,21 @@
           = f.error_notification
           = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
+          -# .form-group
+            = f.association :property
+
           .form-group
             = f.input :first_name, class: 'form-control', placeholder: 'First name'
+
           .form-group
             = f.input :last_name, class: 'form-control', placeholder: 'Last name'
+
           .form-group
-            = f.input :dob, label: 'Date of Birth', class: 'form-control', placeholder: 'Date of Birth'
+            .form-group.date.optional.suit_court_date
+              = f.label :dob, 'Date of Birth', class: "form-control-label date"
+              .d-flex.flex-row.justify-content-between.align-items-center
+                = f.text_field :dob, class: 'form-control datepicker'
+
           .form-group
             = f.input :ssn, label: 'SSN', class: 'form-control', placeholder: 'SSN'
 
@@ -27,4 +36,4 @@
         = link_to 'Cancel', :back, class: 'btn btn-link'
 
     .col-lg-6
-      = render 'shared/nested_address_phone_email_web_no_tabs', f: f, web: false
+      = render 'shared/nested_address_phone_email_web_no_tabs', f: f, address: false, web: false

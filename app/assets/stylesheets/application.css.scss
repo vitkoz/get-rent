@@ -18,6 +18,8 @@
  @import "plugins/plugins";
  @import "line-icons/line-icons";
 
+ @import "dt-picker/jquery.datetimepicker.min";
+
  @import "style";
 
  select.form-control:not([size]):not([multiple]) { height: calc(2.25rem + 2px) !important; }

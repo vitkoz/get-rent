@@ -69,6 +69,6 @@ class SuitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def suit_params
-      params.require(:suit).permit(:court_id, :renter_id, :property_id, :rental_rate, :paid_through, :rent_due, :other, :balance, :court_date, :rent, :cost, :writ_date, :case_num, :def_date, :file_judgment, :file_writ, :paid, :signed, :signed_date)
+      params.require(:suit).permit(:court_id, :renter_id, :property_id, :rental_rate, :paid_through, :rent_due, :other, :balance, :court_date, :rent, :cost, :writ_date, :case_num, :file_judgment, :file_writ, :paid, :signed, :signed_date)
     end
 end
