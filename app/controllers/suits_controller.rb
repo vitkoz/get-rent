@@ -1,5 +1,5 @@
 class SuitsController < ApplicationController
-  before_action :set_suit, only: [:show, :edit, :update, :destroy]
+  before_action :set_suit, only: [:show, :edit, :update, :destroy, :upload_cases]
 
   # GET /suits
   # GET /suits.json
@@ -61,6 +61,11 @@ class SuitsController < ApplicationController
     end
   end
 
+  def upload_cases
+
+  end
+
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_suit

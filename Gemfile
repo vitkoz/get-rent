@@ -64,4 +64,6 @@ group :test do
   gem 'launchy'
 end
 
+gem 'remote_table'
+
 ruby '2.5.3'
