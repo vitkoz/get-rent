@@ -15,6 +15,15 @@
           .form-group
             = f.input :name, class: 'form-control', placeholder: 'Court name'
 
+          .form-group
+            .custom-file
+              = f.file_field :avatar, class: 'custom-file-input'
+              = f.label :avatar, 'Choose avatar/logo file', class: 'custom-file-label'
+
+          .form-group
+            .custom-file
+              = f.file_field :header_image, class: 'custom-file-input'
+              = f.label :header_image, 'Choose file to be used as background', class: 'custom-file-label'
 
       .form-group
         = f.button :submit, class: 'btn btn-lg btn-primary'

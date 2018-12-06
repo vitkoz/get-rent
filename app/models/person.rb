@@ -4,6 +4,8 @@ class Person < ApplicationRecord
   has_many :phones
   has_many :emails
 
+  has_one_attached :avatar
+
   accepts_nested_attributes_for :addresses,  allow_destroy: true,
     :reject_if => proc { |attr| attr[:address_1].blank?  }
   accepts_nested_attributes_for :phones, allow_destroy: true,

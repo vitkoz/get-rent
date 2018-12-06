@@ -71,7 +71,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def client_params
-    params.require(:client).permit(:type, :name,
+    params.require(:client).permit(:type, :name, :header_image, :avatar,
       addresses_attributes: [:id, :primary, :company_id, :address_1, :address_2, :city, :state, :zip, :country, :category, :_destroy],
       phones_attributes: [:id, :primary, :company_id, :area_code, :phone_number, :category, :_destroy],
       emails_attributes: [:id, :primary, :company_id, :email, :category, :_destroy],

@@ -26,6 +26,8 @@ db/*.sqlite3
 
 /config/master.key
 
+/storage/*
+
 # various artifacts
 **.war
 *.rbc

@@ -1,5 +1,8 @@
 class Company < ApplicationRecord
 
+  has_one_attached :header_image
+  has_one_attached :avatar
+
   has_many :addresses
   has_many :phones
   has_many :emails
