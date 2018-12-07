@@ -1,0 +1,111 @@
+= simple_form_for @filing do |f|
+  .row
+    .col-lg-6
+      .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+        .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+          .flex.d-flex.flex-column
+            %h3 Tenant Info
+            %span.portlet-subtitle Required fields are marked with asterisk *
+          .portlet-tools
+            = fa_icon 'address-card-o', style: 'font-size: 24px'
+        .portlet-body
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+          .form-group
+            = f.association :court
+
+          .form-group
+            = f.association :renter
+
+          .input-group
+            = f.label :rental_rate, 'Rental rate', class: "form-control-label"
+            .input-group.mb-3
+              .input-group-prepend
+                %span.input-group-text $
+              = f.text_field :rental_rate, class: 'form-control'
+
+          .form-group
+            = f.input :paid_through
+
+          .input-group
+            = f.label :rent_due, 'Rent due', class: "form-control-label"
+            .input-group.mb-3
+              .input-group-prepend
+                %span.input-group-text $
+              = f.text_field :rent_due, class: 'form-control'
+
+          .input-group
+            = f.label :other, 'Other', class: "form-control-label"
+            .input-group.mb-3
+              .input-group-prepend
+                %span.input-group-text $
+              = f.text_field :other, class: 'form-control'
+
+          .input-group
+            = f.label :balance, 'Balance', class: "form-control-label"
+            .input-group.mb-3
+              .input-group-prepend
+                %span.input-group-text $
+              = f.text_field :balance, class: 'form-control'
+
+      .form-group
+        = f.button :submit, class: 'btn btn-lg btn-primary'
+        = link_to 'Cancel', :back, class: 'btn btn-link'
+
+    .col-lg-6
+      .portlet-box.portlet-gutter.ui-buttons-col.mb-30
+        .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
+          .flex.d-flex.flex-column
+            %h3 Rent Info
+            %span.portlet-subtitle Required fields are marked with asterisk *
+          .portlet-tools
+            = fa_icon 'money', style: 'font-size: 24px'
+        .portlet-body
+
+          .form-group
+            .form-group.date.optional.filing_court_date
+              = f.label :court_date, 'Court date', class: "form-control-label date"
+              .d-flex.flex-row.justify-content-between.align-items-center
+                = f.text_field :court_date, class: 'form-control datepicker'
+
+          .input-group
+            = f.label :rent, 'Rent', class: "form-control-label"
+            .input-group.mb-3
+              .input-group-prepend
+                %span.input-group-text $
+              = f.text_field :rent, class: 'form-control'
+
+          .input-group
+            = f.label :cost, 'Cost', class: "form-control-label"
+            .input-group.mb-3
+              .input-group-prepend
+                %span.input-group-text $
+              = f.text_field :cost, class: 'form-control'
+
+          .form-group
+            .form-group.date.optional.filing_court_date
+              = f.label :writ_date, 'Writ date', class: "form-control-label date"
+              .d-flex.flex-row.justify-content-between.align-items-center
+                = f.text_field :writ_date, class: 'form-control datepicker'
+
+          .form-group
+            = f.input :case_num
+
+          .form-group
+            = f.input :file_judgment
+
+          .form-group
+            = f.input :file_writ
+
+          .form-group
+            = f.input :paid
+
+          .form-group
+            = f.input :signed
+
+          .form-group
+            .form-group.date.optional.filing_court_date
+              = f.label :signed_date, 'Signed date', class: "form-control-label date"
+              .d-flex.flex-row.justify-content-between.align-items-center
+                = f.text_field :signed_date, class: 'form-control datepicker'

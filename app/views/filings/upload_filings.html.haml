@@ -1,53 +1,32 @@
-= simple_form_for @suit do |f|
+- content_for :page_icon do
+  icon-Suitcase
+
+- content_for :page_title do
+  Upload
+  %strong New Filings
+
+- content_for :secondary_page do
+  %li.breadcrumb-item
+    = link_to 'Filings', filings_path
+
+= simple_form_for @filing do |f|
   .row
     .col-lg-6
       .portlet-box.portlet-gutter.ui-buttons-col.mb-30
         .portlet-header.flex-row.flex.d-flex.align-items-center.b-b
           .flex.d-flex.flex-column
-            %h3 Tenant Info
-            %span.portlet-subtitle Required fields are marked with asterisk *
+            %h3 Select a file to upload
+            -# %span.portlet-subtitle Required fields are marked with asterisk *
           .portlet-tools
-            = fa_icon 'address-card-o', style: 'font-size: 24px'
+            = fa_icon 'file-o', style: 'font-size: 24px'
         .portlet-body
           = f.error_notification
           = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
           .form-group
-            = f.association :court
-
-          .form-group
-            = f.association :renter
-
-          .input-group
-            = f.label :rental_rate, 'Rental rate', class: "form-control-label"
-            .input-group.mb-3
-              .input-group-prepend
-                %span.input-group-text $
-              = f.text_field :rental_rate, class: 'form-control'
-
-          .form-group
-            = f.input :paid_through
-
-          .input-group
-            = f.label :rent_due, 'Rent due', class: "form-control-label"
-            .input-group.mb-3
-              .input-group-prepend
-                %span.input-group-text $
-              = f.text_field :rent_due, class: 'form-control'
-
-          .input-group
-            = f.label :other, 'Other', class: "form-control-label"
-            .input-group.mb-3
-              .input-group-prepend
-                %span.input-group-text $
-              = f.text_field :other, class: 'form-control'
-
-          .input-group
-            = f.label :balance, 'Balance', class: "form-control-label"
-            .input-group.mb-3
-              .input-group-prepend
-                %span.input-group-text $
-              = f.text_field :balance, class: 'form-control'
+            .custom-file
+              = f.file_field :header_image, class: 'custom-file-input'
+              = f.label :header_image, 'Choose file to be used as background', class: 'custom-file-label'
 
       .form-group
         = f.button :submit, class: 'btn btn-lg btn-primary'
@@ -64,7 +43,7 @@
         .portlet-body
 
           .form-group
-            .form-group.date.optional.suit_court_date
+            .form-group.date.optional.filing_court_date
               = f.label :court_date, 'Court date', class: "form-control-label date"
               .d-flex.flex-row.justify-content-between.align-items-center
                 = f.text_field :court_date, class: 'form-control datepicker'
@@ -84,7 +63,7 @@
               = f.text_field :cost, class: 'form-control'
 
           .form-group
-            .form-group.date.optional.suit_court_date
+            .form-group.date.optional.filing_court_date
               = f.label :writ_date, 'Writ date', class: "form-control-label date"
               .d-flex.flex-row.justify-content-between.align-items-center
                 = f.text_field :writ_date, class: 'form-control datepicker'
@@ -105,7 +84,7 @@
             = f.input :signed
 
           .form-group
-            .form-group.date.optional.suit_court_date
+            .form-group.date.optional.filing_court_date
               = f.label :signed_date, 'Signed date', class: "form-control-label date"
               .d-flex.flex-row.justify-content-between.align-items-center
                 = f.text_field :signed_date, class: 'form-control datepicker'

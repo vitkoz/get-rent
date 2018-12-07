@@ -16,7 +16,7 @@
             = f.association :property
 
           .form-group
-            = f.input :unit, class: 'form-control', placeholder: 'Unit / Apt / Suite'
+            = f.input :unit, class: 'form-control', placeholder: 'Unit / Apt / Filinge'
 
           .form-group
             = f.input :rent, class: 'form-control', placeholder: 'Monthly rent'
@@ -28,7 +28,7 @@
             = f.input :last_name, class: 'form-control', placeholder: 'Last name'
 
           .form-group
-            .form-group.date.optional.suit_court_date
+            .form-group.date.optional.filing_court_date
               = f.label :dob, 'Date of Birth', class: "form-control-label date"
               .d-flex.flex-row.justify-content-between.align-items-center
                 = f.text_field :dob, class: 'form-control datepicker'

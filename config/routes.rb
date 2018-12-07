@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :suits do
-    get 'update_cases'
+  resources :filings do
+    get 'update_filings'
   end
   resources :clients
   resources :properties

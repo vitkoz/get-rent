@@ -1,0 +1,60 @@
+%p#notice= notice
+
+%p
+  %b Court:
+  = @filing.court
+%p
+  %b Renter:
+  = @filing.renter
+%p
+  %b Property:
+  = @filing.property
+%p
+  %b Rental rate:
+  = @filing.rental_rate
+%p
+  %b Paid through:
+  = @filing.paid_through
+%p
+  %b Rent due:
+  = @filing.rent_due
+%p
+  %b Other:
+  = @filing.other
+%p
+  %b Balance:
+  = @filing.balance
+%p
+  %b Court date:
+  = @filing.court_date
+%p
+  %b Rent:
+  = @filing.rent
+%p
+  %b Cost:
+  = @filing.cost
+%p
+  %b Writ date:
+  = @filing.writ_date
+%p
+  %b Filing num:
+  = @filing.case_num
+%p
+  %b File judgment:
+  = @filing.file_judgment
+%p
+  %b File writ:
+  = @filing.file_writ
+%p
+  %b Paid:
+  = @filing.paid
+%p
+  %b Signed:
+  = @filing.signed
+%p
+  %b Signed date:
+  = @filing.signed_date
+
+= link_to 'Edit', edit_filing_path(@filing)
+\|
+= link_to 'Back', filings_path

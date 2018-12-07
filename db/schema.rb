@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_232016) do
+ActiveRecord::Schema.define(version: 2018_12_07_183401) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -81,6 +81,32 @@ ActiveRecord::Schema.define(version: 2018_12_05_232016) do
     t.index ["user_id"], name: "index_emails_on_user_id"
   end
 
+  create_table "filings", force: :cascade do |t|
+    t.integer "court_id"
+    t.integer "renter_id"
+    t.integer "property_id"
+    t.decimal "rental_rate", precision: 8, scale: 2
+    t.integer "paid_through"
+    t.decimal "rent_due", precision: 8, scale: 2
+    t.decimal "other", precision: 8, scale: 2
+    t.decimal "balance", precision: 8, scale: 2
+    t.date "court_date"
+    t.decimal "rent", precision: 8, scale: 2
+    t.decimal "cost", precision: 8, scale: 2
+    t.date "writ_date"
+    t.string "case_num"
+    t.boolean "file_judgment"
+    t.boolean "file_writ"
+    t.boolean "paid"
+    t.boolean "signed"
+    t.date "signed_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["court_id"], name: "index_filings_on_court_id"
+    t.index ["property_id"], name: "index_filings_on_property_id"
+    t.index ["renter_id"], name: "index_filings_on_renter_id"
+  end
+
   create_table "people", force: :cascade do |t|
     t.string "type"
     t.integer "user_id"
@@ -122,32 +148,6 @@ ActiveRecord::Schema.define(version: 2018_12_05_232016) do
     t.decimal "rent", precision: 8, scale: 2
     t.index ["property_id"], name: "index_rentals_on_property_id"
     t.index ["renter_id"], name: "index_rentals_on_renter_id"
-  end
-
-  create_table "suits", force: :cascade do |t|
-    t.integer "court_id"
-    t.integer "renter_id"
-    t.integer "property_id"
-    t.decimal "rental_rate", precision: 8, scale: 2
-    t.integer "paid_through"
-    t.decimal "rent_due", precision: 8, scale: 2
-    t.decimal "other", precision: 8, scale: 2
-    t.decimal "balance", precision: 8, scale: 2
-    t.date "court_date"
-    t.decimal "rent", precision: 8, scale: 2
-    t.decimal "cost", precision: 8, scale: 2
-    t.date "writ_date"
-    t.string "case_num"
-    t.boolean "file_judgment"
-    t.boolean "file_writ"
-    t.boolean "paid"
-    t.boolean "signed"
-    t.date "signed_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["court_id"], name: "index_suits_on_court_id"
-    t.index ["property_id"], name: "index_suits_on_property_id"
-    t.index ["renter_id"], name: "index_suits_on_renter_id"
   end
 
   create_table "users", force: :cascade do |t|

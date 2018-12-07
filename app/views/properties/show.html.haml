@@ -66,5 +66,5 @@
             #tb2.tab-pane{:role => "tabpanel"}
               = render 'shared/profile.html.haml', entity: @property
             #tb3.tab-pane{:role => "tabpanel"}
-              = render 'shared/cases.html.haml', entity: @property
+              = render 'filings/filings', filings: @property.filings
   / content

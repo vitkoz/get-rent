@@ -22,4 +22,6 @@
 //= require dt-picker/jquery.datetimepicker.full.min
 //= require plugins-custom/pickers-custom
 
+//= require peity/jquery.peity.min
+
 //= require_tree .

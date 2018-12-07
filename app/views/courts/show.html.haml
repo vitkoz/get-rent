@@ -1,7 +1,6 @@
 -# = image_tag @court.header_image, style: 'width: 400px'
 -# = image_tag @court.avatar
 
-
 - content_for :page_icon do
   icon-Libra-2
 
@@ -18,7 +17,7 @@
       -# Left column that shows name, address, main buttons
       .col-xl-3.col-lg-4.b-r.col-md-5.bg-white.d-flex.flex-column.p-4
         .text-center
-          .progress-thumb
+          -# .progress-thumb
             %i.on.states
             %span.donut1{"data-peity" => "{}"} 66,24
             -# %img.img-fluid.rounded-circle{:alt => "", :src => "images/avatar1.jpg"}/
@@ -35,10 +34,10 @@
               %button.btn.btn-block.mb-2.btn-icon.btn-success{:type => "button"}
                 = fa_icon 'comments'
                 Send Message
-              %button.btn.btn-block.mb-2.btn-icon.btn-primary{:type => "button"}
+              -# %button.btn.btn-block.mb-2.btn-icon.btn-primary{:type => "button"}
                 = fa_icon 'user-circle'
                 follow
-            .clearfix
+            -# .clearfix
               %a.btn-icon-o.btn-border-o.si-colored-facebook.btn-icon-sm{:href => "javascript:void(0)"}
                 = fa_icon 'facebook-f'
               %a.btn-icon-o.btn-border-o.si-colored-twitter.btn-icon-sm{:href => "javascript:void(0)"}
@@ -55,21 +54,32 @@
             %li.nav-item{:role => "presentation"}
               %a.nav-link.active{"aria-controls" => "tb1", "data-toggle" => "tab", :href => "#tb1", :role => "tab"}
                 = fa_icon 'pencil', class: 'fs10 mr-1'
-                Activities
+                Filings
             %li.nav-item{:role => "presentation"}
               %a.nav-link{"aria-controls" => "tb2", "data-toggle" => "tab", :href => "#tb2", :role => "tab"}
                 = fa_icon 'user-circle', class: 'fs10 mr-1'
-                Profile
+                Activities
             %li.nav-item{:role => "presentation"}
               %a.nav-link{"aria-controls" => "tb3", "data-toggle" => "tab", :href => "#tb3", :role => "tab"}
                 = fa_icon 'cog', class: 'fs10 mr-1'
-                Settings
+                Profile
           / Tab panes
           .tab-content
             #tb1.tab-pane.active.show{:role => "tabpanel"}
-              = render 'shared/activities.html.haml', activities: @court
+              = render 'shared/filings.html.haml', entity: @court
             #tb2.tab-pane{:role => "tabpanel"}
-              = render 'shared/profile.html.haml', entity: @court
+              = render 'shared/activities.html.haml', activities: @court
             #tb3.tab-pane{:role => "tabpanel"}
-              = render 'shared/cases.html.haml', entity: @court
+              = render 'shared/profile.html.haml', entity: @court
+
   / content
+
+// :javascript
+//   $(function () {
+//       /**peity**/
+//       $(".donut1").peity("donut", {
+//           fill: ["#0084ff", "#fff"],
+//           width: 120,
+//           height: 120
+//       });
+//   });

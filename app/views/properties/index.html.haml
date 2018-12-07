@@ -19,7 +19,7 @@
           %th Tasks
           %th Property Name
           %th Client Name
-          %th Total Cases
+          %th Total Filings
           %th Status
           %th Created
 
@@ -31,7 +31,7 @@
                 = fa_icon 'edit', style: 'font-size: 20px;'
               = link_to property, class: 'd-inline-block ml-2 text-success', title: 'Reports' do
                 = fa_icon 'tasks', style: 'font-size: 20px;'
-              = link_to property, class: 'd-inline-block ml-2 text-info', title: 'Cases' do
+              = link_to property, class: 'd-inline-block ml-2 text-info', title: 'Filings' do
                 = fa_icon 'line-chart', style: 'font-size: 20px;'
               = link_to property, class: 'd-inline-block ml-2 text-warning', title: 'Correspondense' do
                 = fa_icon 'envelope', style: 'font-size: 20px;'
@@ -46,7 +46,7 @@
               = link_to property.client.name, property.client
             %td
               %span
-                Cases
+                Filings
                 %strong 3
               %br
               %span

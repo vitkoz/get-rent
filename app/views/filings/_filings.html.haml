@@ -1,0 +1,62 @@
+.row
+  .bg-white.table-responsive.rounded.shadow-sm.pt-3.pb-3.mb-30
+    %table#data-table.table.mb-0{:cellspacing => "0", :width => "100%"}
+      %thead.dd-none
+        %th Renter
+        %th Court
+        %th Property
+        %th Rental rate
+        %th Paid through
+        %th Rent due
+        %th Other
+        %th Balance
+        %th Court date
+        %th Rent
+        %th Cost
+        %th Writ date
+        %th Filing num
+        %th Def date
+        %th File judgment
+        %th File writ
+        %th Paid
+        %th Signed
+        %th Signed date
+
+      %tbody
+        - filings.each do |filing|
+          %tr
+            %td
+              = link_to filing.renter.full_name, filing.renter
+              .fs12.text-muted
+                #{filing.renter.unit}
+                #{emails(filing.renter.emails)}
+                #{phones(filing.renter.phones)}
+            %td
+              = link_to filing.court.name, filing.court
+              .fs12.text-muted
+                #{addresses(filing.court.addresses)}
+                #{emails(filing.court.emails)}
+                #{phones(filing.court.phones)}
+                #{websites(filing.court.websites)}
+            %td
+              = link_to filing.renter.property.name, filing.renter.property
+              .fs12.text-muted
+                #{addresses(filing.renter.property.addresses)}
+                #{emails(filing.renter.property.emails)}
+                #{phones(filing.renter.property.phones)}
+                #{websites(filing.renter.property.websites)}
+            %td= filing.rental_rate
+            %td= filing.paid_through
+            %td= filing.rent_due
+            %td= filing.other
+            %td= filing.balance
+            %td= filing.court_date
+            %td= filing.rent
+            %td= filing.cost
+            %td= filing.writ_date
+            %td= filing.case_num
+            %td= filing.file_judgment
+            %td= filing.file_writ
+            %td= filing.paid
+            %td= filing.signed
+            %td= filing.signed_date
