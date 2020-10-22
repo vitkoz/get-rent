@@ -1,0 +1,31 @@
+1. Client emails to Katz, excel with info about cases
+WANT:
+
+- Client uploads (or emails excel) cases via app interface
+- Cases must be approved by Katz before they get activated
+
+{SECOND TIER}
+- Cases require extra documents, i.e. Demand for Posession, Copy of Lease, etc.
+- Must be able to configure different reqs per court.
+
+Input excel or case by cases
+Show a list of unfiled Cases
+
+Katz does Word merge and it merges from excel from row nnn to row nnx
+
+-----------------
+
+Gets papers back from court
+Adds case numbers
+
+-------------
+
+Few days before court - email to client with Please send me
+
+File judgemtent? yes/Ni
+Client moved out? Y?N
+Current Ledger balance ___
+
+Each manager sends it for cases relevant to them
+
+----------------

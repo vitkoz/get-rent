@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :suit do
+  factory :filing do
     court { nil }
     renter { nil }
     property { nil }
